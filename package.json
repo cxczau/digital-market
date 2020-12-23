@@ -1,5 +1,6 @@
 {
-  "name": "cxczau",
+  "homepage": "http://cxczau.github.io/portfolio",
+  "name": "portfolio",
   "version": "1.0.0",
   "description": "Portfolio repo",
   "main": "index.js",
@@ -18,10 +19,19 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
   "dependencies": {
+    "@urbica/react-map-gl": "^1.14.2",
+    "@urbica/react-map-gl-cluster": "^0.2.0",
+    "mapbox-gl": "^1.12.0",
     "react": "^17.0.1",
+    "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",
-    "react-scripts": "^4.0.0"
+    "react-mapbox-gl": "^5.1.1",
+    "react-scripts": "^4.0.0",
+    "styled-components": "^5.2.1"
   },
   "browserslist": {
     "production": [
