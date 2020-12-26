@@ -1,7 +1,7 @@
-import React, { useState, Component } from "react";
-import ReactMapboxGl, { Feature, Layer, Popup } from "react-mapbox-gl";
+import React, { Component } from "react";
+import ReactMapboxGl, { Feature, Layer } from "react-mapbox-gl";
 import { siteAuditMarkers } from "../Constants/Icons";
-import { generateRandomDataSet } from "../Utilities/Numbers";
+import { jsonData } from "../Constants/Data";
 
 export class ReactMap extends Component {
   constructor(props) {
@@ -17,18 +17,13 @@ export class ReactMap extends Component {
     };
   }
 
-  componentDidMount() {
-    const dataset = generateRandomDataSet(30, this.props.data.lngLat);
-
-    this.setState({ dataset });
-  }
-
   render() {
-    const { siteData } = this.props;
+    const { Map, viewport } = this.state;
 
-    const { Map, hoverSite, viewport, dataset } = this.state;
+    // const { siteData } = this.props;
 
-    console.log(this.state);
+    // console.log(siteData);
+    const siteData = jsonData;
 
     return (
       <div>
@@ -50,25 +45,7 @@ export class ReactMap extends Component {
             </Popup>
           )} */}
 
-          <Layer
-            type="symbol"
-            id="marker"
-            layout={{ "icon-image": "mapIcon", "icon-allow-overlap": true }}
-            images={siteAuditMarkers}
-          >
-            {siteData.map((site) => (
-              <Feature
-                key={site.uniqueId}
-                coordinates={[site.longitude, site.latitude]}
-                onMouseEnter={() => {
-                  this.setState({ hoverSite: site });
-                }}
-                // onMouseLeave={() => {
-                //   this.setState({ hoverSite: {} });
-                // }}
-              />
-            ))}
-          </Layer>
+          
 
           <Layer
             type="symbol"
@@ -76,7 +53,7 @@ export class ReactMap extends Component {
             layout={{ "icon-image": "mapIcon", "icon-allow-overlap": true }}
             images={siteAuditMarkers}
           >
-            {dataset && dataset.map((site) => (
+            {siteData && siteData.map((site) => (
               <Feature
                 key={site.uniqueId}
                 coordinates={site.lngLat}

@@ -1,8 +1,7 @@
 const BUFFER = 0.5;
 
-const generateRandomNumber = (from, to, fixedPlaces) => {
-  return (Math.random() * (to - from) + from).toFixed(fixedPlaces) * 1;
-};
+const generateRandomNumber = (from, to, fixedPlaces) =>
+  (Math.random() * (to - from) + from).toFixed(fixedPlaces) * 1;
 
 const generateRandomCoordinates = (neighbouringCoords) => {
   if (neighbouringCoords) {

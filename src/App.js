@@ -1,24 +1,23 @@
-import React from 'react';
-import './App.css';
-import { ReactMap } from './Components/Map';
-import ReactHookMap from './Components/MapWithHooks';
-import { jsonData, MAP_CONFIG } from './Constants/Data';
+import React from "react";
+import "./App.css";
+import { ReactMap } from "./Components/Map";
+import NavBar from "./Components/Home/NavBar";
+import ReactHookMap from "./Components/MapWithHooks";
+import { jsonData, SectionEnum, mapConfiguration } from "./Constants/Data";
+import { generateRandomDataSet } from "./Utilities/Numbers";
 
 function App() {
-  
+  const dataset = generateRandomDataSet(30, mapConfiguration.lngLat);
 
   return (
     <div className="App">
       <header className="App-header">
-        <ReactMap 
-          siteData={jsonData}
-          data={MAP_CONFIG}
-        />
-        {/* <ReactHookMap 
-          mapData={jsonData}
-          data={MAP_CONFIG}
+        <NavBar />
+        {/* <ReactMap 
+          siteData={dataset}
+          data={mapConfiguration}
         /> */}
-        
+        <ReactHookMap mapData={dataset} data={mapConfiguration} />
       </header>
     </div>
   );

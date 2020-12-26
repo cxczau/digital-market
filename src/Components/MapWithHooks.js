@@ -24,12 +24,17 @@ const ReactHookMap = (props) => {
   // }
 
   const [hoverSite, setHoverSite] = useState(jsonData[0]);
+  const [mapPins, setMapPins] = useState([]);
 
   const [viewport, setViewport] = useState(props.data.lngLat);
 
   useEffect(() => {
     setViewport(props.data.lngLat);
   }, [props]);
+
+  useEffect(() => {
+    setMapPins(generateRandomDataSet(30, viewport));
+  }, []);
 
   const Map = ReactMapboxGl({
     accessToken: process.env.REACT_APP_MAPBOX_TOKEN,
@@ -69,17 +74,16 @@ const ReactHookMap = (props) => {
           layout={{ "icon-image": "mapIcon", "icon-allow-overlap": true }}
           images={siteAuditMarkers}
         >
-          {/* {jsonData.map((element) => (
-              <Feature
-                key={element.uniqueId}
-                coordinates={element.lngLat}
-                // onMouseEnter={() => {
-                //   setHoverSite(element)
-                // }}
-                // onMouseLeave={()=>{setHoverSite(null)}}
-              />
-            ))} */}
-          <Feature coordinates={viewport} />
+          {mapPins.map((element) => (
+            <Feature
+              key={element.uniqueId}
+              coordinates={element.lngLat}
+              // onMouseEnter={() => {
+              //   setHoverSite(element)
+              // }}
+              // onMouseLeave={()=>{setHoverSite(null)}}
+            />
+          ))}
         </Layer>
       </Map>
     </div>
