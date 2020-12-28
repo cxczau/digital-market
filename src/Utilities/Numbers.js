@@ -29,9 +29,16 @@ export const generateRandomDataSet = (numberRequired, initialViewport) => {
 
   if (numberRequired > 0 && initialViewport) {
     while (output.length < numberRequired) {
+      const lngLat = initialViewport.longitude ? generateRandomCoordinates([
+        initialViewport.longitude,
+        initialViewport.latitude,
+      ]) : generateRandomCoordinates(initialViewport);
+
       const newEntry = {
         siteName: `Site # ${output.length + 1}`,
-        lngLat: generateRandomCoordinates(initialViewport),
+        lngLat,
+        longitude: lngLat[0],
+        latitude: lngLat[1],
         uniqueId: output.length + 1,
       };
 

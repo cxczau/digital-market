@@ -1,24 +1,24 @@
-export const SectionEnum = Object.freeze({ maps: 0, mixpanel: 1, react: 2,  });
+export const SectionEnum = Object.freeze({ maps: 0, mixpanel: 1, react: 2 });
 
 export const sectionData = [
   {
     title: "Mapbox",
-    description: '',
+    description: "",
     section: SectionEnum.maps,
   },
   {
     title: "Mixpanel",
-    description: '',
+    description: "",
     section: SectionEnum.mixpanel,
   },
   {
     title: "React",
-    description: '',
+    description: "",
     section: SectionEnum.react,
   },
   {
     title: "Typescript",
-    description: '',
+    description: "",
     section: SectionEnum.react,
   },
 ];
@@ -26,6 +26,12 @@ export const sectionData = [
 export const mapConfiguration = {
   lngLat: [147.19554, -31.5632],
   zoom: [10],
+};
+
+export const urbicaMapConfiguration = {
+  longitude: 147.19554,
+  latitude: -31.5632,
+  zoom: 10,
 };
 
 export const jsonData = [

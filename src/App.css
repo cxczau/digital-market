@@ -31,3 +31,11 @@
     transform: rotate(360deg);
   }
 }
+
+.mapboxgl-control-container {
+  display: none;
+}
+
+.mapboxgl-popup mapboxgl-popup-anchor-bottom{
+  transform: 0;
+}
