@@ -1,4 +1,4 @@
-const BUFFER = 0.5;
+const BUFFER = 50;
 
 const generateRandomNumber = (from, to, fixedPlaces) =>
   (Math.random() * (to - from) + from).toFixed(fixedPlaces) * 1;
@@ -23,6 +23,7 @@ const generateRandomCoordinates = (neighbouringCoords) => {
 
   return [generateRandomNumber(-180, 180, 3), generateRandomNumber(-90, 90, 3)];
 };
+
 
 export const generateRandomDataSet = (numberRequired, initialViewport) => {
   const output = [];

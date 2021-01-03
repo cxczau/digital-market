@@ -31,6 +31,8 @@
   "dependencies": {
     "@urbica/react-map-gl": "^1.14.2",
     "@urbica/react-map-gl-cluster": "^0.2.0",
+    "bootstrap": "^4.5.3",
+    "jspdf": "^2.2.0",
     "mapbox-gl": "^1.12.0",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",

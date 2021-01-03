@@ -4,9 +4,10 @@ import styled from "styled-components";
 import MapGL, { Layer, Marker, Popup } from "@urbica/react-map-gl";
 import Cluster from "@urbica/react-map-gl-cluster";
 import { mapIcon } from "../Constants/Icons";
-import { jsonData } from "../Constants/Data";
 import { generateRandomDataSet } from "../Utilities/Numbers";
 import { blue1 } from "../Constants/Colors";
+
+const NUMBER_OF_DATA_POINTS = 500;
 
 const Dialog = styled.div`
   display: flex;
@@ -40,14 +41,20 @@ const UrbicaReactHookMap = (props) => {
   const [viewport, setViewport] = useState(props.configuration);
 
   useEffect(() => {
-    setMapPins(generateRandomDataSet(30, viewport));
+    setMapPins(generateRandomDataSet(NUMBER_OF_DATA_POINTS, viewport));
   }, []);
 
   // console.log(props);
 
   return (
     <div>
-      <button onClick={() => setVisible(!visible)}>Show</button>
+      <button onClick={() => setVisible(!visible)}>
+        {visible ? "Hide" : "Show"}
+      </button>
+
+      <button onClick={() => setMapPins(generateRandomDataSet(NUMBER_OF_DATA_POINTS, viewport))}>
+        Generate new data points
+      </button>
 
       <MapGL
         style={{ width: "80vw", height: "80vh" }}
@@ -69,36 +76,39 @@ const UrbicaReactHookMap = (props) => {
             <Dialog>
               <div>{hoverSite.siteName}</div>
 
+              <div>{hoverSite.lngLat}</div>
+
               <div>Click to view full site details</div>
             </Dialog>
           </Popup>
         )}
 
-        {visible && <Cluster
-          // ref={clusterRef}
-          radius={40}
-          extent={512}
-          nodeSize={64}
-          component={ClusterMarker}
-        >
-          {
-            mapPins.length > 0 &&
-            mapPins.map((item, index) => (
-              <Marker
-                key={item.uniqueId}
-                longitude={item.lngLat[0]}
-                latitude={item.lngLat[1]}
-              >
-                <div
-                  // onClick={() => setCurrentSite(item)}
-                  onMouseEnter={() => setHoverSite(item)}
-                  onMouseLeave={() => setHoverSite(null)}
+        {visible && (
+          <Cluster
+            // ref={clusterRef}
+            radius={40}
+            extent={512}
+            nodeSize={64}
+            component={ClusterMarker}
+          >
+            {mapPins.length > 0 &&
+              mapPins.map((item, index) => (
+                <Marker
+                  key={item.uniqueId}
+                  longitude={item.lngLat[0]}
+                  latitude={item.lngLat[1]}
                 >
-                  <img src={mapIcon.src} />
-                </div>
-              </Marker>
-            ))}
-        </Cluster>}
+                  <div
+                    // onClick={() => setCurrentSite(item)}
+                    onMouseEnter={() => setHoverSite(item)}
+                    onMouseLeave={() => setHoverSite(null)}
+                  >
+                    <img src={mapIcon.src} />
+                  </div>
+                </Marker>
+              ))}
+          </Cluster>
+        )}
       </MapGL>
     </div>
   );

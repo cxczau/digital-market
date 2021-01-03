@@ -9,7 +9,7 @@ const Bar = styled.div`
   background: ${blue3};
 `;
 
-const Tab = styled.div`
+const Tab = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,8 +39,11 @@ const NavBar = (props) => {
 
   return (
     <Bar>
-      {sectionData.map(item => (
-        <Tab key={item.section}>
+      {sectionData.map((item, index) => (
+        <Tab
+          key={index}
+          onClick={(item) => props.setCurrentSection(item.section)}
+        >
           <h1>{item.title}</h1>
         </Tab>
       ))}
