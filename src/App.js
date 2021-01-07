@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import NavBar from "./Components/Home/NavBar";
 import UrbicaReactHookMap from "./Components/UrbicaMap";
-import ReactPage from "./Components/ReactPage";
+import ReactPage from "./Components/ByteSized/ReactPage";
+// import VideoPage from "./Components/ByteSized/VideoPage";
 import { urbicaMapConfiguration, SectionEnum } from "./Constants/Data";
 import Magic from "./Components/Magic/Index";
 // import CardListSorter from "./Components/Magic/CardListSorter";
@@ -22,6 +23,7 @@ function App() {
     case SectionEnum.react:
       displayElement = (
         <ReactPage />
+        // <VideoPage />
       );
       break;
     case SectionEnum.magic:

@@ -39,3 +39,10 @@
 .mapboxgl-popup mapboxgl-popup-anchor-bottom{
   transform: 0;
 }
+
+.container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
