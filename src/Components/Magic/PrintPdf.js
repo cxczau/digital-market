@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Form, Col, Button } from "react-bootstrap";
 import jsPDF from "jspdf";
-import { DeterminePosition } from "../../Utilities/MagicUtility";
+import { DeterminePosition } from "./Utility/MagicUtility"
 
 const jsPDFSettings = {
   orientation: "p",

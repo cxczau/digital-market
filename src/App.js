@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import NavBar from "./Components/Home/NavBar";
 import UrbicaReactHookMap from "./Components/UrbicaMap";
+import ReactPage from "./Components/ReactPage";
 import { urbicaMapConfiguration, SectionEnum } from "./Constants/Data";
 import Magic from "./Components/Magic/Index";
+// import CardListSorter from "./Components/Magic/CardListSorter";
 
 function App() {
-  const [currentSection, setCurrentSection] = useState(SectionEnum.maps);
+  const [currentSection, setCurrentSection] = useState(SectionEnum.react);
 
   let displayElement = <div />;
 
@@ -16,8 +19,14 @@ function App() {
         <UrbicaReactHookMap configuration={urbicaMapConfiguration} />
       );
       break;
+    case SectionEnum.react:
+      displayElement = (
+        <ReactPage />
+      );
+      break;
     case SectionEnum.magic:
       displayElement = <Magic />;
+      // displayElement = <CardListSorter />;
       break;
     default:
       displayElement = <div>Error</div>;

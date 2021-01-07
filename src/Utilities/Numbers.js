@@ -24,16 +24,17 @@ const generateRandomCoordinates = (neighbouringCoords) => {
   return [generateRandomNumber(-180, 180, 3), generateRandomNumber(-90, 90, 3)];
 };
 
-
 export const generateRandomDataSet = (numberRequired, initialViewport) => {
   const output = [];
 
   if (numberRequired > 0 && initialViewport) {
     while (output.length < numberRequired) {
-      const lngLat = initialViewport.longitude ? generateRandomCoordinates([
-        initialViewport.longitude,
-        initialViewport.latitude,
-      ]) : generateRandomCoordinates(initialViewport);
+      const lngLat = initialViewport.longitude
+        ? generateRandomCoordinates([
+            initialViewport.longitude,
+            initialViewport.latitude,
+          ])
+        : generateRandomCoordinates(initialViewport);
 
       const newEntry = {
         siteName: `Site # ${output.length + 1}`,
@@ -48,4 +49,36 @@ export const generateRandomDataSet = (numberRequired, initialViewport) => {
   }
 
   return output;
+};
+
+/**
+ *
+ * @param {the array of data which holds the array} data
+ * @param {hook that sets state for data} setData
+ * @param {index of the array item to be jumbled} index
+ */
+export const jumble = (data, setData, index) => {
+  let randomisedObject = [];
+  let randomisedIndexes = [];
+  const actualElement = data[index];
+  let actualData = data;
+  const actualElementLength = actualElement.length;
+
+  while (randomisedIndexes.length < actualElementLength) {
+    let randomInteger = Math.floor(Math.random() * actualElementLength);
+    if (randomisedIndexes.indexOf(randomInteger) === -1) {
+      randomisedIndexes.push(randomInteger);
+    }
+  }
+
+  console.log(randomisedIndexes);
+
+  randomisedIndexes.forEach((item, index) => {
+    randomisedObject.push(actualElement[item]);
+  });
+
+  console.log(randomisedObject);
+
+  actualData[index] = randomisedObject;
+  setData(actualData);
 };

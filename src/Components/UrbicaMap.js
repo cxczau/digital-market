@@ -52,13 +52,17 @@ const UrbicaReactHookMap = (props) => {
         {visible ? "Hide" : "Show"}
       </button>
 
-      <button onClick={() => setMapPins(generateRandomDataSet(NUMBER_OF_DATA_POINTS, viewport))}>
+      <button
+        onClick={() =>
+          setMapPins(generateRandomDataSet(NUMBER_OF_DATA_POINTS, viewport))
+        }
+      >
         Generate new data points
       </button>
 
       <MapGL
         style={{ width: "80vw", height: "80vh" }}
-        mapStyle="mapbox://styles/mapbox/light-v9"
+        mapStyle="mapbox://styles/cxczau/ckjmnzi6321ze19o2to7b49im"
         accessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         {...viewport}
         onViewportChange={setViewport}

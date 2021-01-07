@@ -29,13 +29,13 @@ const NavBar = (props) => {
   const [users, setUsers] = useState([]);
   const [showObject, setShowObject] = useState(false);
 
-  useEffect(() => {
-    console.log("Component did mount");
-  }, []);
+  // useEffect(() => {
+  //   console.log("Component did mount");
+  // }, []);
 
-  useEffect(() => {
-    console.log("On props change");
-  }, [props]);
+  // useEffect(() => {
+  //   console.log("On props change");
+  // }, [props]);
 
   return (
     <Bar>
