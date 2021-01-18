@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
 import video from './video.mp4';
+import styled from "styled-components";
+
+const VideoContainer = styled.div`
+  display: flex;
+  margin: 100px;
+`;
 
 const getVideoSrc = width => {
   // when versions of video are available
@@ -25,9 +31,9 @@ const VideoPage = (props) => {
 
   const src = getVideoSrc(window.innerWidth);
   return (
-    <div className="container">
+    <VideoContainer>
       <video autoPlay playsInline muted src={src} />
-    </div>
+    </VideoContainer>
   );
 };
 

@@ -4,13 +4,13 @@ import "./App.css";
 import NavBar from "./Components/Home/NavBar";
 import UrbicaReactHookMap from "./Components/UrbicaMap";
 import ReactPage from "./Components/ByteSized/ReactPage";
-// import VideoPage from "./Components/ByteSized/VideoPage";
+import VideoPage from "./Components/ByteSized/VideoPage";
 import { urbicaMapConfiguration, SectionEnum } from "./Constants/Data";
 import Magic from "./Components/Magic/Index";
-// import CardListSorter from "./Components/Magic/CardListSorter";
+import CardListSorter from "./Components/Magic/CardListSorter";
 
 function App() {
-  const [currentSection, setCurrentSection] = useState(SectionEnum.react);
+  const [currentSection, setCurrentSection] = useState(SectionEnum.mapbox);
 
   let displayElement = <div />;
 
@@ -27,7 +27,8 @@ function App() {
       );
       break;
     case SectionEnum.magic:
-      displayElement = <Magic />;
+      displayElement = <VideoPage />;
+      // displayElement = <Magic />;
       // displayElement = <CardListSorter />;
       break;
     default:

@@ -29,6 +29,8 @@
     "extends": "react-app"
   },
   "dependencies": {
+    "@mdi/js": "^5.8.55",
+    "@mdi/react": "^1.4.0",
     "@urbica/react-map-gl": "^1.14.2",
     "@urbica/react-map-gl-cluster": "^0.2.0",
     "bootstrap": "^4.5.3",
@@ -40,6 +42,7 @@
     "react-mapbox-gl": "^5.1.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.0",
+    "react-spring": "^8.0.27",
     "styled-components": "^5.2.1"
   },
   "browserslist": {

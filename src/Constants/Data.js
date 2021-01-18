@@ -1,35 +1,59 @@
-export const SectionEnum = Object.freeze({ maps: 0, mixpanel: 1, react: 2, aws: 3 });
+export const SectionEnum = Object.freeze({
+  maps: 0,
+  mixpanel: 1,
+  react: 2,
+  aws: 3,
+});
 
 export const sectionData = [
   {
     title: "Mapbox",
-    description: "",
+
     section: SectionEnum.maps,
+    name: "Rare Wind",
+    description: "#a8edea → #fed6e3",
+    css: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
+    height: 200,
   },
   {
     title: "Mixpanel",
-    description: "",
+
     section: SectionEnum.mixpanel,
+    name: "Saint Petersburg",
+    description: "#f5f7fa → #c3cfe2",
+    css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
+    height: 400,
   },
   {
     title: "React",
-    description: "",
+
     section: SectionEnum.react,
+    name: "Deep Blue",
+    description: "#e0c3fc → #8ec5fc",
+    css: "linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)",
+    height: 400,
   },
   {
     title: "AWS",
-    description: "",
+
     section: SectionEnum.aws,
+    name: "Ripe Malinka",
+    description: "#f093fb → #f5576c",
+    css: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+    height: 400,
   },
-  {
-    title: "Typescript",
-    description: "",
-    section: SectionEnum.react,
-  },
+  // {
+  //   title: "Typescript",
+  //   description: "",
+  //   section: SectionEnum.react,
+  // },
   {
     title: "Magic",
-    description: "",
     section: SectionEnum.magic,
+    name: "Near Moon",
+    description: "#5ee7df → #b490ca",
+    css: "linear-gradient(135deg, #5ee7df 0%, #b490ca 100%)",
+    height: 400,
   },
 ];
 
