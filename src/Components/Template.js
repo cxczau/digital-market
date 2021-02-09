@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 /**
- * Not an actual component; just for copy/pasting
+ * Not an actual component; just for copy/pasting when writing new components
  */
 const Template = (props) => {
   const [ users, setUsers ] = useState([]);

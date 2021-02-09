@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Form, Col, Button } from "react-bootstrap";
 import jsPDF from "jspdf";
-import { DeterminePosition } from "./Utility/MagicUtility"
+import { DeterminePosition } from "./Utility/MagicUtility";
 
 const jsPDFSettings = {
   orientation: "p",
@@ -10,8 +10,6 @@ const jsPDFSettings = {
 };
 
 const PrintPdf = (props) => {
-
-
   const generatePdf = () => {
     const doc = new jsPDF(jsPDFSettings);
 
@@ -29,7 +27,7 @@ const PrintPdf = (props) => {
     doc.save("proxies.pdf");
   };
 
-  console.log(props?.imageUris);
+  // console.log(props?.imageUris);
 
   return (
     <div>

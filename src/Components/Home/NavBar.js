@@ -13,22 +13,10 @@ import {
 import { mdiMenu } from "@mdi/js";
 import { sectionData } from "../../Constants/Data";
 import { grey3, gradientColor, gradientList } from "../../Constants/Colors";
-
-const Overlay = styled.div`
-  ${(props) => (props.visible ? "" : "display: none")};
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 98;
-  margin: 5vw;
-  width: 90vw;
-  height: 90vh;
-  background: ${grey3};
-`;
+import { Trail } from "./NavBar1";
 
 const Container = styled(a.div)`
-  position: relative;
-  display: grid;
+  ${(props) => (props.visible ? "" : "display: none")};
   background: white;
   border-radius: 5px;
   cursor: pointer;
@@ -36,19 +24,16 @@ const Container = styled(a.div)`
   height: 90vh;
   box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.05);
   will-change: width, height;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 5vh 5vw;
+  z-index: 98;
+  background: linear-gradient(to top, white 20%, rgba(255, 255, 255, 0) 100%);
 `;
-// const Container = styled(a.div)`
-//   position: relative;
-//   display: grid;
-//   grid-template-columns: repeat(4, minmax(100px, 1fr));
-//   grid-gap: 25px;
-//   padding: 25px;
-//   background: white;
-//   border-radius: 5px;
-//   cursor: pointer;
-//   box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.05);
-//   will-change: width, height;
-// `;
 
 const Item = styled(a.div)`
   width: 100%;
@@ -57,6 +42,11 @@ const Item = styled(a.div)`
   border-radius: 5px;
   will-change: transform, opacity;
 `;
+
+// const AnimatedContainer = styled(a.div)`
+// position: absolute;
+//   will-change: transform, opacity;
+// `;
 
 const TrailsMain = styled.div`
   position: relative;
@@ -94,18 +84,20 @@ const NavButton = styled.button`
 
 const NavBar = (navBarProps) => {
   const [users, setUsers] = useState([]);
-  const [showObject, setShowObject] = useState(true);
+  const [showObject, setShowObject] = useState(false);
 
   const springRef = useRef();
-  const { size, opacity, ...rest } = useSpring({
-    ref: springRef,
-    config: config.stiff,
-    from: { size: "0px", background: grey3 },
-    to: {
-      size: showObject ? "100%" : "0%",
-      background: showObject ? "white" : grey3,
-    },
-  });
+  const { size, opacity, ...rest } = useSpring(
+    {
+      ref: springRef,
+      config: { mass: 5, tension: 2000, friction: 200 },
+      opacity: open ? 1 : 0,
+      y: open ? 0 : 200,
+      height: open ? 110 : 0,
+      from: { opacity: 0, x: 20, height: 0 },
+    }
+    
+  );
 
   const transRef = useRef();
   const transitions = useTransition(
@@ -133,11 +125,13 @@ const NavBar = (navBarProps) => {
         <Icon color="blue" path={mdiMenu} size="40px" />
       </NavButton>
 
-      <Container
-        style={{ ...rest, width: size, height: size }}
-        onClick={() => setShowObject(!showObject)}
-      >
-        {transitions.map(({ item, key, props }) => (
+      {/* <AnimatedContainer> */}
+        <Container
+          style={{ ...rest, width: size, height: size }}
+          visible={showObject}
+          onClick={() => setShowObject(!showObject)}
+        >
+          {/* {transitions.map(({ item, key, props }) => (
           <Item key={key} style={{ ...props, background: item.css }}>
             <span
               onClick={() => {
@@ -148,8 +142,23 @@ const NavBar = (navBarProps) => {
               {item.title}
             </span>
           </Item>
-        ))}
-      </Container>
+        ))} */}
+
+          <Trail open={showObject}>
+            {sectionData.map((item, index) => (
+              <span
+                key={index}
+                onClick={() => {
+                  setShowObject(false);
+                  navBarProps.setCurrentSection(item.section);
+                }}
+              >
+                {item.title}
+              </span>
+            ))}
+          </Trail>
+        </Container>
+      {/* </AnimatedContainer> */}
     </div>
   );
 };

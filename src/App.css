@@ -1,3 +1,4 @@
+/* Original base template css properties */
 .App {
   text-align: center;
 }
@@ -6,17 +7,6 @@
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -32,6 +22,7 @@
   }
 }
 
+/* Charles work starts here */
 .mapboxgl-control-container {
   display: none;
 }
@@ -45,33 +36,4 @@
   overflow: hidden;
   width: 100%;
   height: 100%;
-}
-
-.trails-main {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 99;
-}
-
-.trails-text {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  line-height: 110px;
-  color: black;
-  font-size: 5em;
-  font-weight: 800;
-  letter-spacing: -9px;
-  will-change: transform, opacity;
-  overflow: hidden;
-}
-
-.trails-text > div {
-  overflow: hidden;
 }

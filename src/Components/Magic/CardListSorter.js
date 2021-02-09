@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { znrList, znrData } from "./Znr";
+// import { znrList, znrData } from "./Znr";
 import { Button } from "react-bootstrap";
 import { saveData } from "../../Utilities/Json";
 import { jumble } from "../../Utilities/Numbers";

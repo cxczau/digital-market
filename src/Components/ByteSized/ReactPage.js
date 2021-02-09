@@ -3,7 +3,7 @@ import { useSpring, animated } from "react-spring";
 import styled from "styled-components";
 
 const BaseCard = styled(animated.div)`
-  position: relative;
+  position: absolute;
   border-radius: 5px;
 
   background-position: center center;
@@ -43,6 +43,7 @@ const RightImage = styled(BaseCard)`
 
 const AnimationContainer = styled.div`
   display: flex;
+  
   align-items: center;
   justify-content: center;
   
@@ -61,9 +62,9 @@ const ComponentContainer = styled.div`
 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
 const trans1 = (x, y) => `translate3d(${x / 100}px,${y / 100}px,0)`;
-const trans2 = (x, y) => `translate3d(${x / 9 - 350}px,${y / 9 - 230}px,0)`;
-const trans3 = (x, y) => `translate3d(${x / 30 - 750}px,${y / 60 - 150}px,0)`;
-const trans4 = (x, y) => `translate3d(${x / 5 - 750}px,${y / 3 - 100}px,0)`;
+const trans2 = (x, y) => `translate3d(${x / 9 }px,${y / 9 - 180}px,0)`;
+const trans3 = (x, y) => `translate3d(${x / 30 -240}px,${y / 60 - 150}px,0)`;
+const trans4 = (x, y) => `translate3d(${x / 2 - 50}px,${y / 6 +50}px,0)`;
 
 const ReactPage = () => {
   const [props, set] = useSpring(() => ({
@@ -75,8 +76,6 @@ const ReactPage = () => {
 
   return (
     <ComponentContainer>
-      
-
       <AnimationContainer
         onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
       >

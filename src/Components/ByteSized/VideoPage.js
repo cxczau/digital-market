@@ -1,10 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import video from './video.mp4';
 import styled from "styled-components";
 
 const VideoContainer = styled.div`
   display: flex;
-  margin: 100px;
+  top: 0;
+  margin: 0px 50px;
+  max-height: 80vh;
+  max-width: 80vw;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+`;
+
+const Video = styled.video`
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  
 `;
 
 const getVideoSrc = width => {
@@ -15,24 +29,18 @@ const getVideoSrc = width => {
   return video;
 };
 
-const VideoPage = (props) => {
+/**
+ * Self-contained component that will display a local video on loop
+ */
+const VideoPage = () => {
   const [ users, setUsers ] = useState([]);
   const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
 
-  // useEffect(() => {
-  //   console.log('Component did mount')
-  // }, []);
-
-  // useEffect(() => {
-  //   console.log('On props change')
-  // }, [props]);
-
-  
-
   const src = getVideoSrc(window.innerWidth);
+  
   return (
     <VideoContainer>
-      <video autoPlay playsInline muted src={src} />
+      <Video autoPlay playsInline muted loop src={src} />
     </VideoContainer>
   );
 };

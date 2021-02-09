@@ -8,7 +8,6 @@ export const SectionEnum = Object.freeze({
 export const sectionData = [
   {
     title: "Mapbox",
-
     section: SectionEnum.maps,
     name: "Rare Wind",
     description: "#a8edea → #fed6e3",
@@ -17,7 +16,6 @@ export const sectionData = [
   },
   {
     title: "Mixpanel",
-
     section: SectionEnum.mixpanel,
     name: "Saint Petersburg",
     description: "#f5f7fa → #c3cfe2",
@@ -26,7 +24,6 @@ export const sectionData = [
   },
   {
     title: "React",
-
     section: SectionEnum.react,
     name: "Deep Blue",
     description: "#e0c3fc → #8ec5fc",
@@ -35,7 +32,6 @@ export const sectionData = [
   },
   {
     title: "AWS",
-
     section: SectionEnum.aws,
     name: "Ripe Malinka",
     description: "#f093fb → #f5576c",
@@ -48,7 +44,7 @@ export const sectionData = [
   //   section: SectionEnum.react,
   // },
   {
-    title: "Magic",
+    title: "Contact",
     section: SectionEnum.magic,
     name: "Near Moon",
     description: "#5ee7df → #b490ca",

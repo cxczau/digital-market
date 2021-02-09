@@ -31,6 +31,14 @@ const TrailsTextContainer = styled(a.div)`
 `;
 
 const TrailsText = styled(a.div)`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: black;
+  font-size: 4em;
+  font-weight: 800;
+  letter-spacing: -6px;
+  will-change: transform, opacity;
   overflow: hidden;
 `;
 
@@ -52,7 +60,7 @@ const Overlay = styled.div`
   background: ${grey3};
 `;
 
-function Trail({ open, children, ...props }) {
+export function Trail({ open, children, ...props }) {
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
     config: { mass: 5, tension: 2000, friction: 200 },
@@ -83,9 +91,9 @@ function Trail({ open, children, ...props }) {
 
 /**
  * Regular NavBar with trails animation for section spans
- * @param  props 
+ * @param  navBarProps 
  */
-const NavBar = (props) => {
+const NavBar = (navBarProps) => {
   const [showObject, setShowObject] = useState(true);
 
   return (
@@ -101,7 +109,7 @@ const NavBar = (props) => {
               key={index}
               onClick={() => {
                 setShowObject(false);
-                props.setCurrentSection(item.section);
+                navBarProps.setCurrentSection(item.section);
               }}
             >
               {item.title}

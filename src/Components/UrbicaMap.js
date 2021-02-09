@@ -44,8 +44,6 @@ const UrbicaReactHookMap = (props) => {
     setMapPins(generateRandomDataSet(NUMBER_OF_DATA_POINTS, viewport));
   }, []);
 
-  // console.log(props);
-
   return (
     <div>
       <button onClick={() => setVisible(!visible)}>
