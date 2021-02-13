@@ -1,4 +1,4 @@
-const BUFFER = 50;
+const LNG_LAT_BUFFER = 0.015;
 
 const generateRandomNumber = (from, to, fixedPlaces) =>
   (Math.random() * (to - from) + from).toFixed(fixedPlaces) * 1;
@@ -8,14 +8,14 @@ const generateRandomCoordinates = (neighbouringCoords) => {
     return [
       // Generates random longitude value
       generateRandomNumber(
-        neighbouringCoords[0] - BUFFER,
-        neighbouringCoords[0] + BUFFER,
+        neighbouringCoords[0] - LNG_LAT_BUFFER,
+        neighbouringCoords[0] + LNG_LAT_BUFFER,
         3
       ),
       // Generates random latitude value
       generateRandomNumber(
-        neighbouringCoords[1] - BUFFER,
-        neighbouringCoords[1] + BUFFER,
+        neighbouringCoords[1] - LNG_LAT_BUFFER,
+        neighbouringCoords[1] + LNG_LAT_BUFFER,
         3
       ),
     ];
@@ -24,7 +24,12 @@ const generateRandomCoordinates = (neighbouringCoords) => {
   return [generateRandomNumber(-180, 180, 3), generateRandomNumber(-90, 90, 3)];
 };
 
-export const generateRandomDataSet = (numberRequired, initialViewport) => {
+// Do I need async?
+export const generateRandomDataSet = async (
+  numberRequired,
+  initialViewport,
+  customIndex
+) => {
   const output = [];
 
   if (numberRequired > 0 && initialViewport) {
@@ -36,12 +41,14 @@ export const generateRandomDataSet = (numberRequired, initialViewport) => {
           ])
         : generateRandomCoordinates(initialViewport);
 
+      const uniqueId = (customIndex ? customIndex : output.length) + 1;
+
       const newEntry = {
-        siteName: `Site # ${output.length + 1}`,
+        siteName: `Site # ${uniqueId}`,
         lngLat,
         longitude: lngLat[0],
         latitude: lngLat[1],
-        uniqueId: output.length + 1,
+        uniqueId,
       };
 
       output.push(newEntry);
@@ -52,10 +59,10 @@ export const generateRandomDataSet = (numberRequired, initialViewport) => {
 };
 
 /**
- *
- * @param {the array of data which holds the array} data
- * @param {hook that sets state for data} setData
- * @param {index of the array item to be jumbled} index
+ * Randomises an array 
+ * @param {any[]} data: the array of data which holds the array
+ * @param {number} setData: index of the array item to be
+ * @param {number} index: index of the array item to be jumbled
  */
 export const jumble = (data, setData, index) => {
   let randomisedObject = [];
@@ -73,7 +80,7 @@ export const jumble = (data, setData, index) => {
 
   console.log(randomisedIndexes);
 
-  randomisedIndexes.forEach((item, index) => {
+  randomisedIndexes.forEach((item) => {
     randomisedObject.push(actualElement[item]);
   });
 

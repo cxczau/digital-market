@@ -13,7 +13,7 @@ import {
 import { mdiMenu } from "@mdi/js";
 import { sectionData } from "../../Constants/Data";
 import { grey3, gradientColor, gradientList } from "../../Constants/Colors";
-import { Trail } from "./NavBar1";
+import { Trail } from "./Trails";
 
 const Container = styled(a.div)`
   ${(props) => (props.visible ? "" : "display: none")};

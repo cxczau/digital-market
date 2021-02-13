@@ -53,13 +53,8 @@ export const sectionData = [
   },
 ];
 
-export const mapConfiguration = {
-  lngLat: [147.19554, -31.5632],
-  zoom: [10],
-};
-
 export const urbicaMapConfiguration = {
-  longitude: 147.19554,
-  latitude: -31.5632,
-  zoom: 10,
+  longitude: 151.2093,
+  latitude: -33.8688,
+  zoom: 13,
 };

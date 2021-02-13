@@ -42,24 +42,6 @@ const TrailsText = styled(a.div)`
   overflow: hidden;
 `;
 
-const NavButton = styled.button`
-  position: fixed;
-  left: 0;
-  top: calc(50vh);
-`;
-
-const Overlay = styled.div`
-  ${(props) => (props.visible ? "" : "display: none")};
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 98;
-  margin: 5vw;
-  width: 90vw;
-  height: 90vh;
-  background: ${grey3};
-`;
-
 export function Trail({ open, children, ...props }) {
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
@@ -81,44 +63,10 @@ export function Trail({ open, children, ...props }) {
               transform: x.interpolate((x) => `translate3d(0,${x}px,0)`),
             }}
           >
-            <TrailsText style={{ height }}>{items[index]}</TrailsText>
+            <TrailsText style={{ height }} key={`trails-text-${index}`}>{items[index]}</TrailsText>
           </TrailsTextContainer>
         ))}
       </div>
     </TrailsMain>
   );
 }
-
-/**
- * Regular NavBar with trails animation for section spans
- * @param  navBarProps 
- */
-const NavBar = (navBarProps) => {
-  const [showObject, setShowObject] = useState(true);
-
-  return (
-    <div>
-      <NavButton onClick={() => setShowObject(!showObject)}>
-        <Icon color="blue" path={mdiMenu} size="40px" />
-      </NavButton>
-
-      <Overlay visible={showObject}>
-        <Trail open={showObject}>
-          {sectionData.map((item, index) => (
-            <span
-              key={index}
-              onClick={() => {
-                setShowObject(false);
-                navBarProps.setCurrentSection(item.section);
-              }}
-            >
-              {item.title}
-            </span>
-          ))}
-        </Trail>
-      </Overlay>
-    </div>
-  );
-};
-
-export default NavBar;

@@ -6,8 +6,14 @@ import Cluster from "@urbica/react-map-gl-cluster";
 import { mapIcon } from "../Constants/Icons";
 import { generateRandomDataSet } from "../Utilities/Numbers";
 import { blue1 } from "../Constants/Colors";
+import { Button } from "react-bootstrap";
 
-const NUMBER_OF_DATA_POINTS = 500;
+const NUMBER_OF_DATA_POINTS = 5;
+const AUSTRALIA_BOUNDS = {
+  longitude: 147.19554,
+  latitude: -25.5632,
+  zoom: 10,
+};
 
 const Dialog = styled.div`
   display: flex;
@@ -36,27 +42,41 @@ const ClusterMarker = ({ longitude, latitude, pointCount }) => (
 const UrbicaReactHookMap = (props) => {
   const [hoverSite, setHoverSite] = useState();
   const [mapPins, setMapPins] = useState([]);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   const [viewport, setViewport] = useState(props.configuration);
 
-  useEffect(() => {
-    setMapPins(generateRandomDataSet(NUMBER_OF_DATA_POINTS, viewport));
+  useEffect(async () => {
+     setMapPins(await generateRandomDataSet(NUMBER_OF_DATA_POINTS, viewport));
   }, []);
+
+  console.log(mapPins);
 
   return (
     <div>
-      <button onClick={() => setVisible(!visible)}>
+      <Button onClick={() => setVisible(!visible)}>
         {visible ? "Hide" : "Show"}
-      </button>
+      </Button>
 
-      <button
+      {/* <Button
         onClick={() =>
           setMapPins(generateRandomDataSet(NUMBER_OF_DATA_POINTS, viewport))
         }
       >
         Generate new data points
-      </button>
+      </Button> */}
+
+      <Button
+        onClick={async () => {
+          await new Promise(r => setTimeout(r, 200));
+
+          const newPin = await generateRandomDataSet(1, viewport, mapPins.length);
+            
+          setMapPins([...mapPins, ...newPin]);
+        }}
+      >
+        Add a new random data point in view
+      </Button>
 
       <MapGL
         style={{ width: "80vw", height: "80vh" }}
@@ -87,7 +107,6 @@ const UrbicaReactHookMap = (props) => {
 
         {visible && (
           <Cluster
-            // ref={clusterRef}
             radius={40}
             extent={512}
             nodeSize={64}
@@ -96,7 +115,7 @@ const UrbicaReactHookMap = (props) => {
             {mapPins.length > 0 &&
               mapPins.map((item, index) => (
                 <Marker
-                  key={item.uniqueId}
+                  key={`marker-${item.uniqueId}`}
                   longitude={item.lngLat[0]}
                   latitude={item.lngLat[1]}
                 >

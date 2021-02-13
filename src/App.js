@@ -23,7 +23,7 @@ const HomePageContainer = styled.div`
 `;
 
 function App() {
-  const [currentSection, setCurrentSection] = useState(SectionEnum.aws);
+  const [currentSection, setCurrentSection] = useState(SectionEnum.maps);
 
   let displayElement = <div />;
 
