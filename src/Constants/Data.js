@@ -1,11 +1,22 @@
+import { mdiEmail, mdiLinkedin, mdiGithub } from "@mdi/js";
+
 export const SectionEnum = Object.freeze({
   maps: 0,
-  mixpanel: 1,
+  about: 1,
   react: 2,
   aws: 3,
+  contact: 4,
 });
 
 export const sectionData = [
+  {
+    title: "About Me",
+    section: SectionEnum.about,
+    name: "Saint Petersburg",
+    description: "#f5f7fa → #c3cfe2",
+    css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
+    height: 400,
+  },
   {
     title: "Mapbox",
     section: SectionEnum.maps,
@@ -15,15 +26,7 @@ export const sectionData = [
     height: 200,
   },
   {
-    title: "Mixpanel",
-    section: SectionEnum.mixpanel,
-    name: "Saint Petersburg",
-    description: "#f5f7fa → #c3cfe2",
-    css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
-    height: 400,
-  },
-  {
-    title: "React",
+    title: "React Projects",
     section: SectionEnum.react,
     name: "Deep Blue",
     description: "#e0c3fc → #8ec5fc",
@@ -45,7 +48,7 @@ export const sectionData = [
   // },
   {
     title: "Contact",
-    section: SectionEnum.magic,
+    section: SectionEnum.contact,
     name: "Near Moon",
     description: "#5ee7df → #b490ca",
     css: "linear-gradient(135deg, #5ee7df 0%, #b490ca 100%)",
@@ -58,3 +61,27 @@ export const urbicaMapConfiguration = {
   latitude: -33.8688,
   zoom: 13,
 };
+
+export const aboutLinks = [
+  {
+    name: "github",
+    icon: "",
+    url: "https://github.com/cxczau",
+    mdi: mdiGithub,
+  },
+  {
+    name: "linkedin",
+    icon: "",
+    url: "https://www.linkedin.com/in/cxczau/",
+    mdi: mdiLinkedin,
+  },
+  {
+    name: "email",
+    icon: "",
+    url: "mailto:cxczau@gmail.com",
+    mdi: mdiEmail,
+  },
+];
+
+export const summary =
+  "Software Developer with a keen eye for detail and passion for problem solving, specialising in front end development. With over two years experience, I have demonstrated capabilities working with the latest front-end technologies within an Agile environment under continuous integration and continuous delivery concepts. Effective communicator with strong stakeholder management experience across all organisational levels. ";

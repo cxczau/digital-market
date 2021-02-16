@@ -10,7 +10,6 @@ const TrailsMain = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -22,7 +21,6 @@ const TrailsTextContainer = styled(a.div)`
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -39,7 +37,6 @@ const TrailsText = styled(a.div)`
   font-weight: 800;
   letter-spacing: -6px;
   will-change: transform, opacity;
-  overflow: hidden;
 `;
 
 export function Trail({ open, children, ...props }) {
@@ -51,12 +48,13 @@ export function Trail({ open, children, ...props }) {
     height: open ? 110 : 0,
     from: { opacity: 0, x: 20, height: 0 },
   });
+
   return (
     <TrailsMain {...props}>
       <div>
         {trail.map(({ x, height, ...rest }, index) => (
           <TrailsTextContainer
-            key={items[index]}
+            key={items[index].key}
             className="trails-text"
             style={{
               ...rest,

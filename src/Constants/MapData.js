@@ -1,5 +1,5 @@
 // Source: https://simplemaps.com/data/au-cities
-export const australianMajorCities = [
+export const australianCities = [
   {
     city: "Sydney",
     lat: "-33.8650",

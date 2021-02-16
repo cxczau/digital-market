@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring";
 import styled from "styled-components";
+import ColorPalette from "../ColorPalette";
 
 const BaseCard = styled(animated.div)`
   position: absolute;
@@ -43,11 +44,9 @@ const RightImage = styled(BaseCard)`
 
 const AnimationContainer = styled.div`
   display: flex;
-  
+
   align-items: center;
   justify-content: center;
-  
-  
 `;
 const ComponentContainer = styled.div`
   display: flex;
@@ -62,9 +61,9 @@ const ComponentContainer = styled.div`
 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
 const trans1 = (x, y) => `translate3d(${x / 100}px,${y / 100}px,0)`;
-const trans2 = (x, y) => `translate3d(${x / 9 }px,${y / 9 - 180}px,0)`;
-const trans3 = (x, y) => `translate3d(${x / 30 -240}px,${y / 60 - 150}px,0)`;
-const trans4 = (x, y) => `translate3d(${x / 2 - 50}px,${y / 6 +50}px,0)`;
+const trans2 = (x, y) => `translate3d(${x / 9}px,${y / 9 - 180}px,0)`;
+const trans3 = (x, y) => `translate3d(${x / 30 - 240}px,${y / 60 - 150}px,0)`;
+const trans4 = (x, y) => `translate3d(${x / 2 - 50}px,${y / 6 + 50}px,0)`;
 
 const ReactPage = () => {
   const [props, set] = useSpring(() => ({
@@ -72,18 +71,18 @@ const ReactPage = () => {
     config: { mass: 10, tension: 550, friction: 140 },
   }));
 
-  console.log(window.innerWidth);
-
   return (
     <ComponentContainer>
-      <AnimationContainer
+      <ColorPalette />
+
+      {/* <AnimationContainer
         onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
       >
         <BackImage style={{ transform: props.xy.interpolate(trans1) }} />
         <TopImage style={{ transform: props.xy.interpolate(trans2) }} />
         <LeftImage style={{ transform: props.xy.interpolate(trans3) }} />
         <RightImage style={{ transform: props.xy.interpolate(trans4) }} />
-      </AnimationContainer>
+      </AnimationContainer> */}
     </ComponentContainer>
   );
 };

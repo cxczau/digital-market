@@ -4,16 +4,15 @@ import styled from "styled-components";
 import MapGL, { Layer, Marker, Popup } from "@urbica/react-map-gl";
 import Cluster from "@urbica/react-map-gl-cluster";
 import { mapIcon } from "../Constants/Icons";
-import { generateRandomDataSet } from "../Utilities/Numbers";
-import { blue1 } from "../Constants/Colors";
+import {
+  generateRandomDataSet,
+  generateRandomCities,
+} from "../Utilities/Numbers";
+import { blue1, gradientColor, grey6 } from "../Constants/Colors";
 import { Button } from "react-bootstrap";
 
-const NUMBER_OF_DATA_POINTS = 5;
-const AUSTRALIA_BOUNDS = {
-  longitude: 147.19554,
-  latitude: -25.5632,
-  zoom: 10,
-};
+const INITIAL_DATA_POINTS = 10;
+const NUMBER_OF_DATA_POINTS = 20;
 
 const Dialog = styled.div`
   display: flex;
@@ -25,9 +24,9 @@ const Dialog = styled.div`
 `;
 
 const style = {
-  width: "20px",
-  height: "20px",
-  color: "#fff",
+  width: "30px",
+  height: "30px",
+  color: grey6,
   background: "#1978c8",
   borderRadius: "20px",
   textAlign: "center",
@@ -35,7 +34,8 @@ const style = {
 
 const ClusterMarker = ({ longitude, latitude, pointCount }) => (
   <Marker longitude={longitude} latitude={latitude}>
-    <div style={{ ...style, background: "#f28a25" }}>{pointCount}</div>
+    {/* TODO: make text a bit bigger and centered */}
+    <div style={{ ...style, background: gradientColor('Deep Blue') }}>{pointCount}</div>
   </Marker>
 );
 
@@ -47,10 +47,9 @@ const UrbicaReactHookMap = (props) => {
   const [viewport, setViewport] = useState(props.configuration);
 
   useEffect(async () => {
-     setMapPins(await generateRandomDataSet(NUMBER_OF_DATA_POINTS, viewport));
+    // TODO: generate map pins within bounds of map view
+    setMapPins(await generateRandomDataSet(INITIAL_DATA_POINTS, viewport));
   }, []);
-
-  console.log(mapPins);
 
   return (
     <div>
@@ -58,24 +57,33 @@ const UrbicaReactHookMap = (props) => {
         {visible ? "Hide" : "Show"}
       </Button>
 
-      {/* <Button
-        onClick={() =>
-          setMapPins(generateRandomDataSet(NUMBER_OF_DATA_POINTS, viewport))
-        }
+      <Button
+        onClick={async () => {
+          await new Promise((resolve) => setTimeout(resolve, 200));
+
+          const newPins = await generateRandomCities(
+            NUMBER_OF_DATA_POINTS,
+            mapPins.length
+          );
+
+          setMapPins([...mapPins, ...newPins]);
+        }}
       >
-        Generate new data points
-      </Button> */}
+        Generate New Data
+      </Button>
 
       <Button
         onClick={async () => {
-          await new Promise(r => setTimeout(r, 200));
+          const newPin = await generateRandomDataSet(
+            1,
+            viewport,
+            mapPins.length
+          );
 
-          const newPin = await generateRandomDataSet(1, viewport, mapPins.length);
-            
           setMapPins([...mapPins, ...newPin]);
         }}
       >
-        Add a new random data point in view
+        Add a New Pin (Random)
       </Button>
 
       <MapGL
@@ -98,9 +106,19 @@ const UrbicaReactHookMap = (props) => {
             <Dialog>
               <div>{hoverSite.siteName}</div>
 
-              <div>{hoverSite.lngLat}</div>
+              <div>
+                {hoverSite.latitude},{hoverSite.longitude}
+              </div>
 
-              <div>Click to view full site details</div>
+              <div>{hoverSite.city?.city}</div>
+
+              <div>
+                {hoverSite.city?.population
+                  ? `Est. Population of City: ${hoverSite.city?.population}`
+                  : ""}
+              </div>
+
+              {/* <div>Click to view full site details</div> */}
             </Dialog>
           </Popup>
         )}
@@ -116,8 +134,8 @@ const UrbicaReactHookMap = (props) => {
               mapPins.map((item, index) => (
                 <Marker
                   key={`marker-${item.uniqueId}`}
-                  longitude={item.lngLat[0]}
-                  latitude={item.lngLat[1]}
+                  longitude={item.longitude}
+                  latitude={item.latitude}
                 >
                   <div
                     // onClick={() => setCurrentSite(item)}

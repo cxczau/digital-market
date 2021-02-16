@@ -6,6 +6,7 @@ import NavBar from "./Components/Home/NavBar";
 import UrbicaReactHookMap from "./Components/UrbicaMap";
 import ReactPage from "./Components/ByteSized/ReactPage";
 import VideoPage from "./Components/ByteSized/VideoPage";
+import AboutPage from "./Pages/AboutPage";
 import { urbicaMapConfiguration, SectionEnum } from "./Constants/Data";
 // import Magic from "./Components/Magic/Index";
 // import CardListSorter from "./Components/Magic/CardListSorter";
@@ -23,7 +24,7 @@ const HomePageContainer = styled.div`
 `;
 
 function App() {
-  const [currentSection, setCurrentSection] = useState(SectionEnum.maps);
+  const [currentSection, setCurrentSection] = useState(SectionEnum.about);
 
   let displayElement = <div />;
 
@@ -31,6 +32,12 @@ function App() {
     case SectionEnum.maps:
       displayElement = (
         <UrbicaReactHookMap configuration={urbicaMapConfiguration} />
+      );
+      break;
+    case SectionEnum.about:
+      displayElement = (
+        <AboutPage />
+        // <VideoPage />
       );
       break;
     case SectionEnum.react:
@@ -44,7 +51,7 @@ function App() {
       // displayElement = <Magic />;
       // displayElement = <CardListSorter />;
       break;
-    case SectionEnum.magic:
+    case SectionEnum.contact:
       displayElement = <VideoPage />;
       // displayElement = <Magic />;
       // displayElement = <CardListSorter />;

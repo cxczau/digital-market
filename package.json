@@ -29,6 +29,10 @@
     "extends": "react-app"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "@mdi/js": "^5.8.55",
     "@mdi/react": "^1.4.0",
     "@urbica/react-map-gl": "^1.14.2",
