@@ -1,10 +1,10 @@
 {
   "homepage": "http://cxczau.github.io/portfolio",
-  "name": "portfolio",
+  "name": "digital-market",
   "version": "1.0.0",
-  "description": "Portfolio repo",
+  "description": "Digital Marketing website mockup",
   "main": "index.js",
-  "repository": "cxczau.github.io/portfolio",
+  "repository": "https://github.com/cxczau.github.io/digital-market",
   "author": "Charles Zhang",
   "license": "MIT",
   "private": false,
