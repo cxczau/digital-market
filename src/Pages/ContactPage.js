@@ -19,10 +19,7 @@ const Summary = styled.div`
   height: 100%;
 `;
 
-/**
- * Not an actual component; just for copy/pasting when writing new components
- */
-const AboutPage = (props) => {
+const ContactPage = (props) => {
   const [users, setUsers] = useState([]);
   const [showObject, setShowObject] = useState(false);
 
@@ -51,4 +48,4 @@ const AboutPage = (props) => {
   );
 };
 
-export default AboutPage;
+export default ContactPage;

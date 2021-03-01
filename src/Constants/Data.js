@@ -1,51 +1,46 @@
-import { mdiEmail, mdiLinkedin, mdiGithub } from "@mdi/js";
+import { mdiEmail, mdiLinkedin, mdiGithub, mdiFacebook, mdiTwitter, mdiInstagram, mdiPhone } from "@mdi/js";
 
 export const SectionEnum = Object.freeze({
-  maps: 0,
-  about: 1,
-  react: 2,
-  aws: 3,
+  services: 0,
+  work: 1,
+  ideas: 2,
+  about: 3,
   contact: 4,
 });
 
 export const sectionData = [
   {
-    title: "About Me",
-    section: SectionEnum.about,
+    title: "Services",
+    section: SectionEnum.services,
     name: "Saint Petersburg",
     description: "#f5f7fa → #c3cfe2",
     css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
     height: 400,
   },
   {
-    title: "Mapbox",
-    section: SectionEnum.maps,
+    title: "Our Work",
+    section: SectionEnum.work,
     name: "Rare Wind",
     description: "#a8edea → #fed6e3",
     css: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
     height: 200,
   },
   {
-    title: "React Projects",
-    section: SectionEnum.react,
+    title: "Our Ideas",
+    section: SectionEnum.ideas,
     name: "Deep Blue",
     description: "#e0c3fc → #8ec5fc",
     css: "linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)",
     height: 400,
   },
   {
-    title: "AWS",
-    section: SectionEnum.aws,
+    title: "About Us",
+    section: SectionEnum.about,
     name: "Ripe Malinka",
     description: "#f093fb → #f5576c",
     css: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
     height: 400,
   },
-  // {
-  //   title: "Typescript",
-  //   description: "",
-  //   section: SectionEnum.react,
-  // },
   {
     title: "Contact",
     section: SectionEnum.contact,
@@ -64,16 +59,22 @@ export const urbicaMapConfiguration = {
 
 export const aboutLinks = [
   {
-    name: "github",
+    name: "facebook",
     icon: "",
-    url: "https://github.com/cxczau",
-    mdi: mdiGithub,
+    url: "https://facebook.com",
+    mdi: mdiFacebook,
   },
   {
-    name: "linkedin",
+    name: "instagram",
     icon: "",
-    url: "https://www.linkedin.com/in/cxczau/",
-    mdi: mdiLinkedin,
+    url: "https://instagram.com",
+    mdi: mdiInstagram,
+  },
+  {
+    name: "twitter",
+    icon: "",
+    url: "https://twitter.com",
+    mdi: mdiTwitter,
   },
   {
     name: "email",
@@ -81,7 +82,19 @@ export const aboutLinks = [
     url: "mailto:cxczau@gmail.com",
     mdi: mdiEmail,
   },
+  {
+    name: "email",
+    icon: "",
+    url: "tel:+614 0022 6711",
+    mdi: mdiPhone,
+  },
+  {
+    name: "linkedin",
+    icon: "",
+    url: "https://linkedin.com",
+    mdi: mdiLinkedin,
+  },
 ];
 
-export const summary =
-  "Software Developer with a keen eye for detail and passion for problem solving, specialising in front end development. With over two years experience, I have demonstrated capabilities working with the latest front-end technologies within an Agile environment under continuous integration and continuous delivery concepts. Effective communicator with strong stakeholder management experience across all organisational levels. ";
+export const sampleText =
+  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";

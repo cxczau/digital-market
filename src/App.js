@@ -3,14 +3,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import styled from "styled-components";
 import "./App.css";
 import NavBar from "./Components/Home/NavBar";
-import UrbicaReactHookMap from "./Components/UrbicaMap";
 import ReactPage from "./Components/ByteSized/ReactPage";
 import VideoPage from "./Components/ByteSized/VideoPage";
-import AboutPage from "./Pages/AboutPage";
-import { urbicaMapConfiguration, SectionEnum } from "./Constants/Data";
-// import Magic from "./Components/Magic/Index";
-// import CardListSorter from "./Components/Magic/CardListSorter";
-import MatchEntryPage from "./Components/Magic/MatchEntryPage";
+import { SectionEnum } from "./Constants/Data";
+import { ContactPage, IdeasPage, WorkPage, AboutPage } from "./Pages";
 
 const HomePageContainer = styled.div`
   display: flex;
@@ -24,37 +20,25 @@ const HomePageContainer = styled.div`
 `;
 
 function App() {
-  const [currentSection, setCurrentSection] = useState(SectionEnum.about);
+  const [currentSection, setCurrentSection] = useState(SectionEnum.ideas);
 
   let displayElement = <div />;
 
   switch (currentSection) {
-    case SectionEnum.maps:
-      displayElement = (
-        <UrbicaReactHookMap configuration={urbicaMapConfiguration} />
-      );
+    case SectionEnum.services:
+      displayElement = <ReactPage />;
       break;
-    case SectionEnum.about:
-      displayElement = (
-        <AboutPage />
-        // <VideoPage />
-      );
+    case SectionEnum.work:
+      displayElement = <WorkPage />;
       break;
-    case SectionEnum.react:
-      displayElement = (
-        <ReactPage />
-        // <VideoPage />
-      );
-      break;
-    case SectionEnum.aws:
-      displayElement = <MatchEntryPage />;
-      // displayElement = <Magic />;
-      // displayElement = <CardListSorter />;
+    case SectionEnum.ideas:
+      displayElement = <IdeasPage />;
       break;
     case SectionEnum.contact:
-      displayElement = <VideoPage />;
-      // displayElement = <Magic />;
-      // displayElement = <CardListSorter />;
+      displayElement = <ContactPage />;
+      break;
+    case SectionEnum.about:
+      displayElement = <AboutPage />;
       break;
     default:
       displayElement = <div>Error</div>;
@@ -68,6 +52,8 @@ function App() {
 
         {displayElement}
       </HomePageContainer>
+
+      <footer>Copyright 2021 All rights reserved.</footer>
     </div>
   );
 }

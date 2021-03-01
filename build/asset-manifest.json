@@ -1,24 +1,31 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.1a7b7189.chunk.css",
-    "main.js": "/portfolio/static/js/main.9c76460f.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.9c76460f.chunk.js.map",
-    "runtime-main.js": "/portfolio/static/js/runtime-main.8fed2963.js",
-    "runtime-main.js.map": "/portfolio/static/js/runtime-main.8fed2963.js.map",
-    "static/css/2.ae650132.chunk.css": "/portfolio/static/css/2.ae650132.chunk.css",
-    "static/js/2.cf9f3ffa.chunk.js": "/portfolio/static/js/2.cf9f3ffa.chunk.js",
-    "static/js/2.cf9f3ffa.chunk.js.map": "/portfolio/static/js/2.cf9f3ffa.chunk.js.map",
-    "index.html": "/portfolio/index.html",
-    "static/css/2.ae650132.chunk.css.map": "/portfolio/static/css/2.ae650132.chunk.css.map",
-    "static/css/main.1a7b7189.chunk.css.map": "/portfolio/static/css/main.1a7b7189.chunk.css.map",
-    "static/js/2.cf9f3ffa.chunk.js.LICENSE.txt": "/portfolio/static/js/2.cf9f3ffa.chunk.js.LICENSE.txt",
-    "static/media/video.be242b95.mp4": "/portfolio/static/media/video.be242b95.mp4"
+    "main.css": "/digital-market/static/css/main.1a7b7189.chunk.css",
+    "main.js": "/digital-market/static/js/main.de81dff8.chunk.js",
+    "main.js.map": "/digital-market/static/js/main.de81dff8.chunk.js.map",
+    "runtime-main.js": "/digital-market/static/js/runtime-main.1d62b5ad.js",
+    "runtime-main.js.map": "/digital-market/static/js/runtime-main.1d62b5ad.js.map",
+    "static/css/2.c8727d81.chunk.css": "/digital-market/static/css/2.c8727d81.chunk.css",
+    "static/js/2.0bb1a788.chunk.js": "/digital-market/static/js/2.0bb1a788.chunk.js",
+    "static/js/2.0bb1a788.chunk.js.map": "/digital-market/static/js/2.0bb1a788.chunk.js.map",
+    "index.html": "/digital-market/index.html",
+    "static/css/2.c8727d81.chunk.css.map": "/digital-market/static/css/2.c8727d81.chunk.css.map",
+    "static/css/main.1a7b7189.chunk.css.map": "/digital-market/static/css/main.1a7b7189.chunk.css.map",
+    "static/js/2.0bb1a788.chunk.js.LICENSE.txt": "/digital-market/static/js/2.0bb1a788.chunk.js.LICENSE.txt",
+    "static/media/design1.5dac8199.jpg": "/digital-market/static/media/design1.5dac8199.jpg",
+    "static/media/design2.030b7cb8.jpg": "/digital-market/static/media/design2.030b7cb8.jpg",
+    "static/media/design3.3e6c836b.jpg": "/digital-market/static/media/design3.3e6c836b.jpg",
+    "static/media/design4.958aed53.jpg": "/digital-market/static/media/design4.958aed53.jpg",
+    "static/media/design5.d67310cb.jpg": "/digital-market/static/media/design5.d67310cb.jpg",
+    "static/media/design6.5f201f9e.jpg": "/digital-market/static/media/design6.5f201f9e.jpg",
+    "static/media/react-bootstrap-carousel.css": "/digital-market/static/media/react-bootstrap-carousel.f4133112.ttf",
+    "static/media/video.be242b95.mp4": "/digital-market/static/media/video.be242b95.mp4"
   },
   "entrypoints": [
-    "static/js/runtime-main.8fed2963.js",
-    "static/css/2.ae650132.chunk.css",
-    "static/js/2.cf9f3ffa.chunk.js",
+    "static/js/runtime-main.1d62b5ad.js",
+    "static/css/2.c8727d81.chunk.css",
+    "static/js/2.0bb1a788.chunk.js",
     "static/css/main.1a7b7189.chunk.css",
-    "static/js/main.9c76460f.chunk.js"
+    "static/js/main.de81dff8.chunk.js"
   ]
 }
