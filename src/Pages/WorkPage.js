@@ -66,7 +66,7 @@ const WorkPage = (props) => {
         <h1>Koko Media</h1>
       </TitleContainer>
 
-      <h2>Our Work</h2>
+      <h3>Our Work</h3>
 
       <SectionContainer>
         {designImages.map((img, key) => (

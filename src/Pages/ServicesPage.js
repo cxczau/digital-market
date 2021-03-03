@@ -66,7 +66,7 @@ const ServicesPage = (props) => {
         <h1>Koko Media</h1>
       </TitleContainer>
 
-      <h2>Our Services</h2>
+      <h3>Our Services</h3>
 
       <SectionContainer>
         {designImages.map((img, key) => (

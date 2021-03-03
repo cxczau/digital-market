@@ -35,7 +35,7 @@ function App() {
       displayElement = <IdeasPage />;
       break;
     case SectionEnum.contact:
-      displayElement = <ContactPage />;
+      displayElement = <ContactPage setCurrentSection={setCurrentSection} />;
       break;
     case SectionEnum.about:
       displayElement = <AboutPage />;

@@ -8,9 +8,14 @@ import {
   Checkbox,
   FormGroup,
   FormHelperText,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
 } from "@material-ui/core";
+// import ExpandMoreIcon from "@material-ui/icons/ExpandMoreIcon";
 import { makeStyles } from "@material-ui/core/styles";
 import { aboutLinks, sampleText, services } from "../Constants/Data";
+import { SectionEnum } from "../Constants/Data";
 import FilledIcon from "../Components/FilledIcon";
 
 const useStyles = makeStyles((theme) => ({
@@ -46,13 +51,13 @@ const ContactContainer = styled.div`
   }
 `;
 
-const Summary = styled.div`
+const Subtitle = styled.div`
   position: relative;
   width: 30vw;
   height: 100%;
 `;
 
-const ContactPage = () => {
+const ContactPage = (props) => {
   const [users, setUsers] = useState([]);
   const [readyToSubmit, setReadyToSubmit] = useState(false);
 
@@ -70,7 +75,7 @@ const ContactPage = () => {
   return (
     <div>
       <h1>Koko Media</h1>
-      <h2>Contact Us</h2>
+      <h3>Contact Us</h3>
 
       <HrefContainer>
         {aboutLinks.map((item, index) => (
@@ -82,6 +87,13 @@ const ContactPage = () => {
 
       <ContactContainer>
         <Card className={classes.card}>
+          <p>
+            {" "}
+            For more info about the services we provide,{" "}
+            <a onClick={()=>props.setCurrentSection(SectionEnum.services)}>click here</a>
+            {"! "}
+          </p>
+
           <form className={classes.form} noValidate autoComplete="off">
             <FormGroup>
               <TextField
@@ -102,31 +114,41 @@ const ContactPage = () => {
                 helperText="Facebook, Instagram, etc."
               />
             </FormGroup>
-            
-            <div>
-              <FormLabel component="label">Services</FormLabel>
-              <FormGroup aria-label="position" row>
-                {services.map((group, key) => (
-                  <div key={key}>
-                    <FormHelperText>{group.group}</FormHelperText>
 
-                    {group?.subservice?.map((service, index) => (
-                      <FormControlLabel
-                        value="end"
-                        control={<Checkbox color="primary" />}
-                        label={service.name}
-                        labelPlacement="end"
-                        key={`checkbox-${key}-${index}`}
-                      />
+            <Accordion>
+              <AccordionSummary
+                // expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <p>Services requested:</p>
+              </AccordionSummary>
+              <AccordionDetails>
+                <p>Note which services you are interested in</p>
+                <div>
+                  <FormLabel component="label">Services</FormLabel>
+                  <FormGroup aria-label="position" row>
+                    {services.map((group, key) => (
+                      <div key={key}>
+                        <FormHelperText>{group.group}</FormHelperText>
+
+                        {group?.subservice?.map((service, index) => (
+                          <FormControlLabel
+                            value="end"
+                            control={<Checkbox color="primary" />}
+                            label={service.name}
+                            labelPlacement="end"
+                            key={`checkbox-${key}-${index}`}
+                          />
+                        ))}
+                      </div>
                     ))}
-                  </div>
-                ))}
-              </FormGroup>
-            </div>
+                  </FormGroup>
+                </div>
+              </AccordionDetails>
+            </Accordion>
           </form>
         </Card>
-
-        <Summary>{sampleText.slice(0, 400)}</Summary>
       </ContactContainer>
     </div>
   );

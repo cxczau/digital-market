@@ -19,7 +19,7 @@ const Summary = styled.p`
   height: 100%;
 `;
 
-const AboutPage = () => {
+const HomePage = () => {
   return (
     <div>
       <h1>Koko Media</h1>
@@ -39,4 +39,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default HomePage;

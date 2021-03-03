@@ -58,7 +58,7 @@ const WorkPage = (props) => {
         <h1>Koko Media</h1>
       </TitleContainer>
 
-      <h2>Our Ideas</h2>
+      <h3>Our Ideas</h3>
 
       {/* <Carousel /> */}
 
