@@ -1,39 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { aboutLinks, sampleText } from "../Constants/Data";
+import { aboutLinks } from "../Constants/Data";
+import { companyDescription } from "../Constants/Text";
 import FilledIcon from "../Components/FilledIcon";
-import { mdiLinkedin } from "@mdi/js";
 
 const HrefContainer = styled.div`
   display: flex;
   justify-content: center;
-  
+
   > * {
     margin: 0px 10px;
   }
 `;
 
-const Summary = styled.div`
+const Summary = styled.p`
   position: relative;
   width: 60vw;
   height: 100%;
 `;
 
-/**
- * Not an actual component; just for copy/pasting when writing new components
- */
-const AboutPage = (props) => {
-  const [users, setUsers] = useState([]);
-  const [showObject, setShowObject] = useState(false);
-
-  // useEffect(() => {
-  //   console.log('Component did mount')
-  // }, []);
-
-  // useEffect(() => {
-  //   console.log('On props change')
-  // }, [props]);
-
+const AboutPage = () => {
   return (
     <div>
       <h1>Koko Media</h1>
@@ -46,7 +32,9 @@ const AboutPage = (props) => {
         ))}
       </HrefContainer>
 
-      <Summary>{sampleText}</Summary>
+      {companyDescription.text.map((item, index) => (
+        <Summary key={`summary-text-${index}`}>{item}</Summary>
+      ))}
     </div>
   );
 };

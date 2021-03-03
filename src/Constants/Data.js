@@ -1,4 +1,11 @@
-import { mdiEmail, mdiLinkedin, mdiGithub, mdiFacebook, mdiTwitter, mdiInstagram, mdiPhone } from "@mdi/js";
+import {
+  mdiEmail,
+  mdiLinkedin,
+  mdiFacebook,
+  mdiTwitter,
+  mdiInstagram,
+  mdiPhone,
+} from "@mdi/js";
 
 export const SectionEnum = Object.freeze({
   services: 0,
@@ -93,6 +100,85 @@ export const aboutLinks = [
     icon: "",
     url: "https://linkedin.com",
     mdi: mdiLinkedin,
+  },
+];
+
+export const services = [
+  {
+    group: "Branding Services",
+    subservice: [
+      {
+        name: "Brand Strategy",
+      },
+      {
+        name: "Brand Identity",
+      },
+      {
+        name: "Corporate Visual Guide",
+      },
+      {
+        name: "Brand Pitch Deck",
+      },
+    ],
+  },
+  {
+    group: "Website Development",
+    subservice: [
+      {
+        name: "Website Audit",
+      },
+      {
+        name: "Web Design & Development",
+      },
+      {
+        name: "Mobile App",
+      },
+    ],
+  },
+  {
+    group: "Internet Marketing",
+    subservice: [
+      {
+        name: "Search Engine Optimisation(SEO)",
+      },
+      {
+        name: "Digital Campaign Strategy",
+      },
+      {
+        name: "Online Paid Advertising",
+      },
+      {
+        name: "Social Media Marketing (SMM)",
+      },
+      {
+        name: "Social Media Marketing",
+      },
+    ],
+  },
+  {
+    group: "Creative Works",
+    subservice: [
+      {
+        name: "Videography",
+      },
+      {
+        name: "Photography",
+      },
+      {
+        name: "Graphic Design",
+      },
+    ],
+  },
+  {
+    group: "Miscellaneous",
+    subservice: [
+      {
+        name: "Business Intelligence (BI)",
+      },
+      {
+        name: "White Label",
+      },
+    ],
   },
 ];
 

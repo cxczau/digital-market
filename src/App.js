@@ -4,9 +4,9 @@ import styled from "styled-components";
 import "./App.css";
 import NavBar from "./Components/Home/NavBar";
 import ReactPage from "./Components/ByteSized/ReactPage";
-import VideoPage from "./Components/ByteSized/VideoPage";
+// import VideoPage from "./Components/ByteSized/VideoPage";
 import { SectionEnum } from "./Constants/Data";
-import { ContactPage, IdeasPage, WorkPage, AboutPage } from "./Pages";
+import { ContactPage, IdeasPage, WorkPage, AboutPage, ServicesPage } from "./Pages";
 
 const HomePageContainer = styled.div`
   display: flex;
@@ -20,13 +20,13 @@ const HomePageContainer = styled.div`
 `;
 
 function App() {
-  const [currentSection, setCurrentSection] = useState(SectionEnum.ideas);
+  const [currentSection, setCurrentSection] = useState(SectionEnum.contact);
 
   let displayElement = <div />;
 
   switch (currentSection) {
     case SectionEnum.services:
-      displayElement = <ReactPage />;
+      displayElement = <ServicesPage />;
       break;
     case SectionEnum.work:
       displayElement = <WorkPage />;
@@ -41,7 +41,8 @@ function App() {
       displayElement = <AboutPage />;
       break;
     default:
-      displayElement = <div>Error</div>;
+      displayElement = <ReactPage />;
+      // displayElement = <div>Error</div>;
       break;
   }
 
