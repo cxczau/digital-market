@@ -6,7 +6,14 @@ import NavBar from "./Components/Home/NavBar";
 import ReactPage from "./Components/ByteSized/ReactPage";
 // import VideoPage from "./Components/ByteSized/VideoPage";
 import { SectionEnum } from "./Constants/Data";
-import { ContactPage, IdeasPage, WorkPage, AboutPage, ServicesPage } from "./Pages";
+import {
+  HomePage,
+  ContactPage,
+  IdeasPage,
+  WorkPage,
+  AboutPage,
+  ServicesPage,
+} from "./Pages";
 
 const HomePageContainer = styled.div`
   display: flex;
@@ -25,20 +32,23 @@ function App() {
   let displayElement = <div />;
 
   switch (currentSection) {
+    case SectionEnum.home:
+      displayElement = <HomePage setCurrentSection={setCurrentSection} />;
+      break;
     case SectionEnum.services:
-      displayElement = <ServicesPage />;
+      displayElement = <ServicesPage setCurrentSection={setCurrentSection} />;
       break;
     case SectionEnum.work:
-      displayElement = <WorkPage />;
+      displayElement = <WorkPage setCurrentSection={setCurrentSection} />;
       break;
     case SectionEnum.ideas:
-      displayElement = <IdeasPage />;
+      displayElement = <IdeasPage setCurrentSection={setCurrentSection} />;
       break;
     case SectionEnum.contact:
       displayElement = <ContactPage setCurrentSection={setCurrentSection} />;
       break;
     case SectionEnum.about:
-      displayElement = <AboutPage />;
+      displayElement = <AboutPage setCurrentSection={setCurrentSection} />;
       break;
     default:
       displayElement = <ReactPage />;

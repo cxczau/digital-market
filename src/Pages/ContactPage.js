@@ -12,11 +12,14 @@ import {
   AccordionSummary,
   AccordionDetails,
 } from "@material-ui/core";
-// import ExpandMoreIcon from "@material-ui/icons/ExpandMoreIcon";
+import { ExpandMore } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
-import { aboutLinks, sampleText, services } from "../Constants/Data";
+import { aboutLinks, services } from "../Constants/Data";
 import { SectionEnum } from "../Constants/Data";
 import FilledIcon from "../Components/FilledIcon";
+
+// EMAILJS_USER_ID=user_f2C3T8y77xDTsGloL6DP6
+// EMAILJS_API_KEY=0477e6882b08e867fc07362b6f4aca97
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -58,8 +61,9 @@ const Subtitle = styled.div`
 `;
 
 const ContactPage = (props) => {
-  const [users, setUsers] = useState([]);
+  const [emailBody, setEmailBody] = useState({});
   const [readyToSubmit, setReadyToSubmit] = useState(false);
+  const [error, setError] = useState(false);
 
   // Material UI
   const classes = useStyles();
@@ -71,6 +75,40 @@ const ContactPage = (props) => {
   // useEffect(() => {
   //   console.log('On props change')
   // }, [props]);
+
+  const handleSubmit = () => {
+    let formattedEmailBody = { services: [] };
+
+    Object.keys(emailBody).map((item) => {
+      if (emailBody[item] === true) {
+        formattedEmailBody.services.push(item);
+      } else if (emailBody[item]) {
+        formattedEmailBody[item] = emailBody[item];
+      }
+    });
+
+    // const formattedEmailBody = JSON.stringify(emailBody)
+    console.log(formattedEmailBody);
+    console.log(window);
+
+    window.emailjs
+      .send(
+        "service_tcsbbtt",
+        "template_2kmxk3x",
+        formattedEmailBody,
+        process.env.EMAILJS_USER_ID
+      )
+      .then((res) => {
+        console.log("Email successfully sent!");
+      })
+      // Handle errors here however you like, or use a React error boundary
+      .catch((err) =>
+        console.error(
+          "Oh well, you failed. Here some thoughts on the error that occured:",
+          err
+        )
+      );
+  };
 
   return (
     <div>
@@ -90,43 +128,91 @@ const ContactPage = (props) => {
           <p>
             {" "}
             For more info about the services we provide,{" "}
-            <a onClick={()=>props.setCurrentSection(SectionEnum.services)}>click here</a>
+            <a onClick={() => props.setCurrentSection(SectionEnum.services)}>
+              click here
+            </a>
             {"! "}
           </p>
 
-          <form className={classes.form} noValidate autoComplete="off">
+          <form
+            className={classes.form}
+            noValidate
+            autoComplete="off"
+            id="contact-form"
+          >
             <FormGroup>
               <TextField
                 required
                 id="standard-required"
                 label="Email Address"
+                error={error}
+                helperText={error && "Incorrect email address"}
+                onChange={(event) => {
+                  setEmailBody({ ...emailBody, toAddress: event.target.value });
+                }}
               />
 
-              <TextField id="standard" label="Contact Name" />
+              <TextField
+                id="standard"
+                label="Contact Name"
+                onChange={(event) => {
+                  setEmailBody({ ...emailBody, toName: event.target.value });
+                }}
+              />
 
-              <TextField id="standard" label="Company" />
+              <TextField
+                id="standard"
+                label="Company"
+                onChange={(event) => {
+                  setEmailBody({ ...emailBody, toCompany: event.target.value });
+                }}
+              />
 
-              <TextField id="standard" label="Mobile" />
+              <TextField
+                id="standard"
+                label="Mobile"
+                onChange={(event) => {
+                  setEmailBody({ ...emailBody, toMobile: event.target.value });
+                }}
+              />
 
               <TextField
                 id="standard-helperText"
                 label="Social Media Link"
                 helperText="Facebook, Instagram, etc."
+                onChange={(event) => {
+                  setEmailBody({
+                    ...emailBody,
+                    socialMedia: event.target.value,
+                  });
+                }}
               />
             </FormGroup>
 
+            <input
+              type="button"
+              value="Submit"
+              className="btn btn--submit"
+              onClick={() => handleSubmit()}
+            />
+
             <Accordion>
               <AccordionSummary
-                // expandIcon={<ExpandMoreIcon />}
+                expandIcon={<ExpandMore />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
                 <p>Services requested:</p>
               </AccordionSummary>
+
               <AccordionDetails>
-                <p>Note which services you are interested in</p>
                 <div>
-                  <FormLabel component="label">Services</FormLabel>
+                  <FormGroup aria-label="position" row>
+                    <FormLabel component="label">
+                      Note which services you are interested in
+                    </FormLabel>
+                  </FormGroup>
+
                   <FormGroup aria-label="position" row>
                     {services.map((group, key) => (
                       <div key={key}>
@@ -134,11 +220,16 @@ const ContactPage = (props) => {
 
                         {group?.subservice?.map((service, index) => (
                           <FormControlLabel
-                            value="end"
                             control={<Checkbox color="primary" />}
                             label={service.name}
                             labelPlacement="end"
                             key={`checkbox-${key}-${index}`}
+                            onChange={(event) =>
+                              setEmailBody({
+                                ...emailBody,
+                                [service.name]: event.target.checked,
+                              })
+                            }
                           />
                         ))}
                       </div>

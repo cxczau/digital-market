@@ -5,17 +5,27 @@ import {
   mdiTwitter,
   mdiInstagram,
   mdiPhone,
+  mdiYoutube,
 } from "@mdi/js";
 
 export const SectionEnum = Object.freeze({
-  services: 0,
-  work: 1,
-  ideas: 2,
-  about: 3,
-  contact: 4,
+  home: 0,
+  services: 1,
+  work: 2,
+  ideas: 3,
+  about: 4,
+  contact: 5,
 });
 
 export const sectionData = [
+  // {
+  //   title: "Home",
+  //   section: SectionEnum.home,
+  //   name: "Saint Petersburg",
+  //   description: "#f5f7fa → #c3cfe2",
+  //   css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
+  //   height: 400,
+  // },
   {
     title: "Services",
     section: SectionEnum.services,
@@ -78,6 +88,12 @@ export const aboutLinks = [
     mdi: mdiInstagram,
   },
   {
+    name: "youtube",
+    icon: "",
+    url: "https://youtube.com",
+    mdi: mdiYoutube,
+  },
+  {
     name: "twitter",
     icon: "",
     url: "https://twitter.com",
@@ -90,7 +106,7 @@ export const aboutLinks = [
     mdi: mdiEmail,
   },
   {
-    name: "email",
+    name: "phone",
     icon: "",
     url: "tel:+614 0022 6711",
     mdi: mdiPhone,

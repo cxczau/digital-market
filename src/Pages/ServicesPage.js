@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { aboutLinks, sampleText } from "../Constants/Data";
+import { servicesDescription } from "../Constants/Text";
 import FilledIcon from "../Components/FilledIcon";
 import { mdiCards } from "@mdi/js";
 import { designImages } from "../Assets";
@@ -17,13 +17,16 @@ const TitleContainer = styled.div`
 
 const Summary = styled.div`
   position: relative;
-  width: 60vw;
+  font-size: 0.8em;
+  width: 50vw;
   height: 100%;
 `;
 
 const SectionContainer = styled.div`
   display: grid;
 `;
+
+const SubSection = styled.div``;
 
 const Section = styled.div`
   display: flex;
@@ -69,11 +72,14 @@ const ServicesPage = (props) => {
       <h3>Our Services</h3>
 
       <SectionContainer>
-        {designImages.map((img, key) => (
+        {servicesDescription.map((service, key) => (
           <Section key={`work-section-${key}`}>
-            <Image src={img} width="200px" />
+            <Image src={designImages[key]} width="200px" />
 
-            <Summary>{sampleText.slice(0, 400)}</Summary>
+            <SubSection>
+              <h4>{service.title}</h4>
+              <Summary>{service.text}</Summary>
+            </SubSection>
           </Section>
         ))}
       </SectionContainer>
