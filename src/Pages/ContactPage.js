@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 275,
     maxWidth: 500,
     padding: 10,
+    borderRadius: 20,
   },
 }));
 
@@ -91,23 +92,23 @@ const ContactPage = (props) => {
     console.log(formattedEmailBody);
     console.log(window);
 
-    window.emailjs
-      .send(
-        "service_tcsbbtt",
-        "template_2kmxk3x",
-        formattedEmailBody,
-        process.env.EMAILJS_USER_ID
-      )
-      .then((res) => {
-        console.log("Email successfully sent!");
-      })
-      // Handle errors here however you like, or use a React error boundary
-      .catch((err) =>
-        console.error(
-          "Oh well, you failed. Here some thoughts on the error that occured:",
-          err
-        )
-      );
+    // window.emailjs
+    //   .send(
+    //     "service_tcsbbtt",
+    //     "template_2kmxk3x",
+    //     formattedEmailBody,
+    //     process.env.EMAILJS_USER_ID
+    //   )
+    //   .then((res) => {
+    //     console.log("Email successfully sent!");
+    //   })
+    //   // Handle errors here however you like, or use a React error boundary
+    //   .catch((err) =>
+    //     console.error(
+    //       "Oh well, you failed. Here some thoughts on the error that occured:",
+    //       err
+    //     )
+    //   );
   };
 
   return (
