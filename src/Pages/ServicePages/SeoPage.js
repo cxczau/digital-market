@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { servicesDescription } from "../Constants/Text";
-import FilledIcon from "../Components/FilledIcon";
+import { servicesDescription } from "../../Constants/Text";
+import FilledIcon from "../../Components/FilledIcon";
 import { mdiCards } from "@mdi/js";
-import { designImages } from "../Assets";
+import { designImages } from "../../Assets";
 
 const TitleContainer = styled.div`
   display: flex;
@@ -49,7 +49,7 @@ const Image = styled.img`
 /**
  * Not an actual component; just for copy/pasting when writing new components
  */
-const ServicesPage = (props) => {
+const SeoPage = (props) => {
   const [users, setUsers] = useState([]);
   const [showObject, setShowObject] = useState(false);
 
@@ -87,4 +87,4 @@ const ServicesPage = (props) => {
   );
 };
 
-export default ServicesPage;
+export default SeoPage;

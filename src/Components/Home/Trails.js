@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-import Icon from "@mdi/react";
 import styled from "styled-components";
 import { a, useTrail } from "react-spring";
-import { mdiMenu } from "@mdi/js";
-import { sectionData } from "../../Constants/Data";
-import { grey3 } from "../../Constants/Colors";
 
 const TrailsMain = styled.div`
   position: relative;
@@ -33,9 +29,9 @@ const TrailsText = styled(a.div)`
   width: 100%;
   height: 100%;
   color: black;
-  font-size: 4em;
+  font-size: 3em;
   font-weight: 800;
-  letter-spacing: -6px;
+  letter-spacing: -3px;
   will-change: transform, opacity;
 `;
 
@@ -45,7 +41,7 @@ export function Trail({ open, children, ...props }) {
     config: { mass: 5, tension: 2000, friction: 200 },
     opacity: open ? 1 : 0,
     y: open ? 0 : 20,
-    height: open ? 110 : 0,
+    height: open ? 50 : 0,
     from: { opacity: 0, x: 20, height: 0 },
   });
 

@@ -22,7 +22,7 @@ const Summary = styled.p`
 const AboutPage = () => {
   return (
     <div>
-      <h1>Koko Media</h1>
+      
 
       <HrefContainer>
         {aboutLinks.map((item, index) => (

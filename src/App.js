@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styled from "styled-components";
 import "./App.css";
+import Main from './Main';
 import NavBar from "./Components/Home/NavBar";
 import ReactPage from "./Components/ByteSized/ReactPage";
 // import VideoPage from "./Components/ByteSized/VideoPage";
@@ -58,11 +59,14 @@ function App() {
 
   return (
     <div className="App">
-      <HomePageContainer>
+      {/* <HomePageContainer>
         <NavBar setCurrentSection={setCurrentSection} />
 
         {displayElement}
-      </HomePageContainer>
+      </HomePageContainer> */}
+      <NavBar />
+
+      <Main />
 
       <footer>Copyright 2021 All rights reserved.</footer>
     </div>

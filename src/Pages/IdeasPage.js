@@ -55,7 +55,7 @@ const WorkPage = (props) => {
       <TitleContainer>
         <FilledIcon path={mdiCards} />
 
-        <h1>Koko Media</h1>
+        
       </TitleContainer>
 
       <h3>Our Ideas</h3>

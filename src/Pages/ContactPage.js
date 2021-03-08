@@ -11,6 +11,9 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  Button,
+  Drawer,
+  List
 } from "@material-ui/core";
 import { ExpandMore } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
@@ -113,7 +116,6 @@ const ContactPage = (props) => {
 
   return (
     <div>
-      <h1>Koko Media</h1>
       <h3>Contact Us</h3>
 
       <HrefContainer>

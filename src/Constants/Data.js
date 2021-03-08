@@ -17,6 +17,57 @@ export const SectionEnum = Object.freeze({
   contact: 5,
 });
 
+export const servicesSectionData = [
+  {
+    title: "Branding",
+    name: "Deep Blue",
+    description: "#e0c3fc → #8ec5fc",
+    css: "linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)",
+    height: 400,
+    link: "/branding",
+  },
+  {
+    title: "Content Creation",
+    name: "Deep Blue",
+    description: "#e0c3fc → #8ec5fc",
+    css: "linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)",
+    height: 400,
+    link: "/content-creation",
+  },
+  {
+    title: "Graphic Design",
+    name: "Deep Blue",
+    description: "#e0c3fc → #8ec5fc",
+    css: "linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)",
+    height: 400,
+    link: "/graphic-design",
+  },
+  {
+    title: "SEO",
+    name: "Deep Blue",
+    description: "#e0c3fc → #8ec5fc",
+    css: "linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)",
+    height: 400,
+    link: "/seo",
+  },
+  {
+    title: "Social Media Management",
+    name: "Deep Blue",
+    description: "#e0c3fc → #8ec5fc",
+    css: "linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)",
+    height: 400,
+    link: "/social-media-mgmt",
+  },
+  {
+    title: "Web Development",
+    name: "Deep Blue",
+    description: "#e0c3fc → #8ec5fc",
+    css: "linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)",
+    height: 400,
+    link: "/web-development",
+  },
+]
+
 export const sectionData = [
   // {
   //   title: "Home",
@@ -25,23 +76,18 @@ export const sectionData = [
   //   description: "#f5f7fa → #c3cfe2",
   //   css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
   //   height: 400,
+  //   link: "/",
   // },
-  {
-    title: "Services",
-    section: SectionEnum.services,
-    name: "Saint Petersburg",
-    description: "#f5f7fa → #c3cfe2",
-    css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
-    height: 400,
-  },
-  {
-    title: "Our Work",
-    section: SectionEnum.work,
-    name: "Rare Wind",
-    description: "#a8edea → #fed6e3",
-    css: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
-    height: 200,
-  },
+  // {
+  //   title: "Services",
+  //   section: SectionEnum.services,
+  //   name: "Saint Petersburg",
+  //   description: "#f5f7fa → #c3cfe2",
+  //   css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
+  //   height: 400,
+  //   link: "/services",
+  // },
+
   {
     title: "Our Ideas",
     section: SectionEnum.ideas,
@@ -49,6 +95,7 @@ export const sectionData = [
     description: "#e0c3fc → #8ec5fc",
     css: "linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)",
     height: 400,
+    link: "/our-ideas",
   },
   {
     title: "About Us",
@@ -57,6 +104,7 @@ export const sectionData = [
     description: "#f093fb → #f5576c",
     css: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
     height: 400,
+    link: "/about-us",
   },
   {
     title: "Contact",
@@ -65,6 +113,16 @@ export const sectionData = [
     description: "#5ee7df → #b490ca",
     css: "linear-gradient(135deg, #5ee7df 0%, #b490ca 100%)",
     height: 400,
+    link: "/contact-us",
+  },
+  {
+    title: "Contact (v2)",
+    section: SectionEnum.work,
+    name: "Rare Wind",
+    description: "#a8edea → #fed6e3",
+    css: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
+    height: 200,
+    link: "/our-work",
   },
 ];
 

@@ -9,6 +9,8 @@ export const grey4 = "#5D6D7E";
 export const grey5 = "#34495E";
 export const grey6 = "#2E4053";
 
+export const kokoYellow = "#E7CE57";
+
 export const gradientColor = (id) => {
   if (typeof id === "number") {
     return gradientList[id];

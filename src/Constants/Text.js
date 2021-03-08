@@ -11,6 +11,8 @@ export const companyDescription = {
 
 export const contactUsDescription = [""];
 
+
+
 export const servicesDescription = [
   {
     title: "Website Design & Development",
@@ -43,3 +45,7 @@ export const servicesDescription = [
       "Branding is far more than just your logo. We look in depth at how we can develop a brand with personality and trust. At KOKO Media we view branding as the prime gateway to how customers and employees envision the future of your business. We want to create a memorable and desirable brand that everyone can continue to recall. McDonald’s isn’t where they are today by just placing and M as their logo. There is science and psychology behind colours and the simplicity of the brand.  We help you develop the best and most relative brand awareness. But hey, if you want a simple logo and that's it, we can do that too!",
   },
 ];
+
+export const specificService = (serviceName) => {
+  return servicesDescription.find(service => service.name === serviceName);
+}
