@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import video from "./video2.mp4";
+import video from "./video3.mp4";
 import styled from "styled-components";
 
 const VideoContainer = styled.div`
@@ -44,7 +44,7 @@ const VideoComponent = () => {
 
   return (
     <VideoContainer>
-      <Video autoPlay playsInline muted loop src={src} />
+      <Video autoPlay playsInline muted loop src={src} preload="auto"/>
     </VideoContainer>
   );
 };
