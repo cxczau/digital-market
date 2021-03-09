@@ -32,7 +32,7 @@ const getVideoSrc = width => {
 /**
  * Self-contained component that will display a local video on loop
  */
-const VideoPage = () => {
+const VideoComponent = () => {
   const [ users, setUsers ] = useState([]);
   const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
 
@@ -45,4 +45,4 @@ const VideoPage = () => {
   );
 };
 
-export default VideoPage;
+export default VideoComponent;

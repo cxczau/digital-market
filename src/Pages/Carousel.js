@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { aboutLinks, sampleText } from "../Constants/Data";
-import FilledIcon from "../Components/FilledIcon";
 import { mdiLinkedin, mdiCards } from "@mdi/js";
 import { designImages } from "../Assets";
 import { Col, Row } from "react-bootstrap";

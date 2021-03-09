@@ -20,7 +20,6 @@ import { ExpandMore } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 import { aboutLinks, services } from "../Constants/Data";
 import { SectionEnum } from "../Constants/Data";
-import FilledIcon from "../Components/FilledIcon";
 import { mdiCards } from "@mdi/js";
 import { Link } from "react-router-dom";
 
@@ -128,14 +127,6 @@ const WorkPage = (props) => {
   return (
     <div>
       <h3>Contact Us</h3>
-
-      <HrefContainer>
-        {aboutLinks.map((item, index) => (
-          <a className="icon" href={item.url} key={index}>
-            <FilledIcon path={item.mdi} />
-          </a>
-        ))}
-      </HrefContainer>
 
       <ContactContainer>
         <Card className={classes.card}>

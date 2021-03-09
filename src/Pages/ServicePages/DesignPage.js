@@ -1,87 +1,35 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { servicesDescription } from "../../Constants/Text";
-import FilledIcon from "../../Components/FilledIcon";
-import { mdiCards } from "@mdi/js";
+import { specificService } from "../../Constants/Text";
 import { designImages } from "../../Assets";
+import {
+  TitleContainer,
+  Summary,
+  SectionContainer,
+  SubSection,
+  Section,
+  Image,
+} from "./Base";
 
-const TitleContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  > * {
-    margin: 0px 5px;
-  }
-`;
-
-const Summary = styled.div`
-  position: relative;
-  font-size: 0.8em;
-  width: 50vw;
-  height: 100%;
-`;
-
-const SectionContainer = styled.div`
-  display: grid;
-`;
-
-const SubSection = styled.div``;
-
-const Section = styled.div`
-  display: flex;
-
-  > * {
-    margin: 10px 5px;
-  }
-
-  :nth-child(odd) {
-    flex-direction: row-reverse;
-  }
-`;
-
-const Image = styled.img`
-  object-fit: cover;
-  height: 300px;
-  width: 300px;
-`;
-
-/**
- * Not an actual component; just for copy/pasting when writing new components
- */
-const DesignPage = (props) => {
-  const [users, setUsers] = useState([]);
-  const [showObject, setShowObject] = useState(false);
-
-  // useEffect(() => {
-  //   console.log('Component did mount')
-  // }, []);
-
-  // useEffect(() => {
-  //   console.log('On props change')
-  // }, [props]);
+const DesignPage = () => {
+  const serviceDesc = specificService("design");
 
   return (
     <div>
       <TitleContainer>
-        <FilledIcon path={mdiCards} />
-
-        
+        <h3>Our Services</h3>
       </TitleContainer>
 
-      <h3>Our Services</h3>
-
       <SectionContainer>
-        {servicesDescription.map((service, key) => (
-          <Section key={`work-section-${key}`}>
-            <Image src={designImages[key]} width="200px" />
+        <Section>
+          <Image src={designImages[1]} width="200px" />
 
-            <SubSection>
-              <h4>{service.title}</h4>
-              <Summary>{service.text}</Summary>
-            </SubSection>
-          </Section>
-        ))}
+          <SubSection>
+            <h4>{serviceDesc.title}</h4>
+
+            <Summary>{serviceDesc.text}</Summary>
+          </SubSection>
+        </Section>
       </SectionContainer>
     </div>
   );

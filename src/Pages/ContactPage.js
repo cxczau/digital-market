@@ -19,7 +19,6 @@ import { ExpandMore } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 import { aboutLinks, services } from "../Constants/Data";
 import { SectionEnum } from "../Constants/Data";
-import FilledIcon from "../Components/FilledIcon";
 
 // EMAILJS_USER_ID=user_f2C3T8y77xDTsGloL6DP6
 // EMAILJS_API_KEY=0477e6882b08e867fc07362b6f4aca97
@@ -117,14 +116,6 @@ const ContactPage = (props) => {
   return (
     <div>
       <h3>Contact Us</h3>
-
-      <HrefContainer>
-        {aboutLinks.map((item, index) => (
-          <a className="icon" href={item.url} key={index}>
-            <FilledIcon path={item.mdi} />
-          </a>
-        ))}
-      </HrefContainer>
 
       <ContactContainer>
         <Card className={classes.card}>

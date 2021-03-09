@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { servicesDescription } from "../Constants/Text";
-import FilledIcon from "../Components/FilledIcon";
 import { mdiCards } from "@mdi/js";
 import { designImages } from "../Assets";
 
@@ -64,7 +63,7 @@ const ServicesPage = (props) => {
   return (
     <div>
       <TitleContainer>
-        <FilledIcon path={mdiCards} />
+        
 
         
       </TitleContainer>

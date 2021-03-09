@@ -19,9 +19,22 @@ import {
   useTrail,
 } from "react-spring";
 import { mdiMenu, mdiHome } from "@mdi/js";
-import { sectionData, servicesSectionData } from "../../Constants/Data";
+import {
+  sectionData,
+  servicesSectionData,
+  aboutLinks,
+} from "../../Constants/Data";
 import { kokoYellow, grey6 } from "../../Constants/Colors";
 import { Trail } from "./Trails";
+
+const HrefContainer = styled.div`
+  display: flex;
+  justify-content: center;
+
+  > * {
+    margin: 0px 10px;
+  }
+`;
 
 const NavBarContainer = styled.div`
   display: flex;
@@ -87,6 +100,14 @@ const NavBar = (navBarProps) => {
     <NavBarContainer>
       <h1>Koko Media</h1>
 
+      <HrefContainer>
+        {aboutLinks.map((item, index) => (
+          <a className="icon" href={item.url} key={index}>
+            <Icon color="black" path={item.mdi} size="40px" />
+          </a>
+        ))}
+      </HrefContainer>
+
       <HomeButton
         key={`link-home`}
         to="/"
@@ -99,17 +120,18 @@ const NavBar = (navBarProps) => {
         <Icon color="black" path={mdiHome} size="40px" />
       </HomeButton>
 
+      
+
       <NavButton
         onClick={() => {
           setShowObject(!showObject);
           setShowServices(false);
         }}
-      >
-        <Icon color="black" path={mdiMenu} size="40px" />
-      </NavButton>
+      ></NavButton>
 
       <Container
-        visible={showObject}
+        // Styled components doesn't like passing booleans as props
+        visible={showObject ? "true" : undefined}
       >
         <Trail open={showObject}>
           <ServicesDropdown onClick={() => setShowServices(!showServices)}>
