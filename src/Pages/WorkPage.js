@@ -142,6 +142,7 @@ const WorkPage = (props) => {
             noValidate
             autoComplete="off"
             id="contact-form"
+            netlify
           >
             <FormGroup>
               <TextField
@@ -202,12 +203,7 @@ const WorkPage = (props) => {
               />
             </FormGroup>
 
-            <input
-              type="button"
-              value="Submit"
-              className="btn btn--submit"
-              onClick={() => handleSubmit()}
-            />
+            <button type="submit">Send</button>
 
             <Button onClick={() => setDrawerOpen(true)}>Services</Button>
 

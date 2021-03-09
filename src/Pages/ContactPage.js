@@ -133,6 +133,7 @@ const ContactPage = (props) => {
             noValidate
             autoComplete="off"
             id="contact-form"
+            netlify
           >
             <FormGroup>
               <TextField
