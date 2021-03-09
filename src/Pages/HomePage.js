@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { aboutLinks } from "../Constants/Data";
 import { companyDescription } from "../Constants/Text";
+import VideoComponent from "../Components/ByteSized/VideoComponent";
 
 
 
@@ -14,13 +15,11 @@ const Summary = styled.p`
 const HomePage = () => {
   return (
     <div>
-      
+      <VideoComponent />
 
-      
-
-      {companyDescription.text.map((item, index) => (
+      {/* {companyDescription.text.map((item, index) => (
         <Summary key={`summary-text-${index}`}>{item}</Summary>
-      ))}
+      ))} */}
     </div>
   );
 };

@@ -27,6 +27,13 @@ const HomePageContainer = styled.div`
   color: white;
 `;
 
+const Footer = styled.footer`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+`;
+
 function App() {
   const [currentSection, setCurrentSection] = useState(SectionEnum.contact);
 
@@ -68,7 +75,7 @@ function App() {
 
       <Main />
 
-      <footer>Copyright 2021 All rights reserved.</footer>
+      <Footer>Copyright 2021 All rights reserved.</Footer>
     </div>
   );
 }

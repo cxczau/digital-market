@@ -9,15 +9,17 @@ import {
   SubSection,
   Section,
   Image,
+  PageContainer,
+  ServiceBreadcrumb,
 } from "./Base";
 
 const SeoPage = () => {
   const serviceDesc = specificService("seo");
 
   return (
-    <div>
+    <PageContainer>
       <TitleContainer>
-        <h3>Our Services</h3>
+        <ServiceBreadcrumb currentService={serviceDesc} />
       </TitleContainer>
 
       <SectionContainer>
@@ -31,7 +33,7 @@ const SeoPage = () => {
           </SubSection>
         </Section>
       </SectionContainer>
-    </div>
+    </PageContainer>
   );
 };
 

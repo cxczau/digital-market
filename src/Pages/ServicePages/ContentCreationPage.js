@@ -9,15 +9,17 @@ import {
   SubSection,
   Section,
   Image,
+  PageContainer,
+  ServiceBreadcrumb,
 } from "./Base";
 
 const ContentCreationPage = () => {
   const serviceDesc = specificService("creative");
 
   return (
-    <div>
+    <PageContainer>
       <TitleContainer>
-        <h3>Our Services</h3>
+        <ServiceBreadcrumb currentService={serviceDesc} />
       </TitleContainer>
 
       <SectionContainer>
@@ -30,7 +32,7 @@ const ContentCreationPage = () => {
           </SubSection>
         </Section>
       </SectionContainer>
-    </div>
+    </PageContainer>
   );
 };
 

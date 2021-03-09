@@ -1,27 +1,31 @@
 import React, { useState } from "react";
-import video from './video.mp4';
+import video from "./video2.mp4";
 import styled from "styled-components";
 
 const VideoContainer = styled.div`
-  display: flex;
-  top: 0;
+  position: fixed;
+  max-width: 80vw;
+  top: 100;
+  ${
+    "" /* display: flex;
+  top: 110;
   margin: 0px 50px;
   max-height: 80vh;
   max-width: 80vw;
   align-items: center;
   justify-content: center;
-  pointer-events: none;
+  pointer-events: none; */
+  }
 `;
 
 const Video = styled.video`
   position: fixed;
   z-index: 2;
   width: 100%;
-  height: 100%;
-  
+  margin: auto;
 `;
 
-const getVideoSrc = width => {
+const getVideoSrc = (width) => {
   // when versions of video are available
   // https://medium.com/frontend-digest/responsive-and-progressive-video-loading-in-react-e8753315af51
   // if (width >= 1080) return desktopVideo;
@@ -33,11 +37,11 @@ const getVideoSrc = width => {
  * Self-contained component that will display a local video on loop
  */
 const VideoComponent = () => {
-  const [ users, setUsers ] = useState([]);
+  const [users, setUsers] = useState([]);
   const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
 
   const src = getVideoSrc(window.innerWidth);
-  
+
   return (
     <VideoContainer>
       <Video autoPlay playsInline muted loop src={src} />

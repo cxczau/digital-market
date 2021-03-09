@@ -9,7 +9,7 @@ import {
   AccordionSummary,
   AccordionDetails,
 } from "@material-ui/core";
-import { ExpandMore } from "@material-ui/icons";
+import { ExpandMore, ExpandLess } from "@material-ui/icons";
 import {
   useTransition,
   useSpring,
@@ -96,17 +96,30 @@ const NavBar = (navBarProps) => {
   const [showObject, setShowObject] = useState(false);
   const [showServices, setShowServices] = useState(false);
 
+  const servicesDropdownEl = !showServices ? (
+    <div>
+      Services
+      <ExpandMore />
+    </div>
+  ) : (
+    <div>
+      Services
+      <ExpandLess />
+    </div>
+  );
+
   return (
     <NavBarContainer>
       <h1>Koko Media</h1>
 
-      <HrefContainer>
+      {/* TODO: href for social media links */}
+      {/* <HrefContainer>
         {aboutLinks.map((item, index) => (
           <a className="icon" href={item.url} key={index}>
             <Icon color="black" path={item.mdi} size="40px" />
           </a>
         ))}
-      </HrefContainer>
+      </HrefContainer> */}
 
       <HomeButton
         key={`link-home`}
@@ -120,14 +133,14 @@ const NavBar = (navBarProps) => {
         <Icon color="black" path={mdiHome} size="40px" />
       </HomeButton>
 
-      
-
       <NavButton
         onClick={() => {
           setShowObject(!showObject);
           setShowServices(false);
         }}
-      ></NavButton>
+      >
+        <Icon color="black" path={mdiMenu} size="40px" />
+      </NavButton>
 
       <Container
         // Styled components doesn't like passing booleans as props
@@ -135,7 +148,8 @@ const NavBar = (navBarProps) => {
       >
         <Trail open={showObject}>
           <ServicesDropdown onClick={() => setShowServices(!showServices)}>
-            <p>Services</p>
+            {servicesDropdownEl}
+            {/* <p>Services</p> */}
 
             {/* TODO: expand more formatted correctly */}
             {/* <ExpandMore /> */}
