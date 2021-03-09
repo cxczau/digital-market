@@ -144,8 +144,10 @@ const WorkPage = (props) => {
             id="contact-form"
             netlify
           >
-            <input type="hidden" name="form-name" value="contact-form" />
-            
+            {/* TODO: netlify form handling */}
+            {/* https://docs.netlify.com/forms/setup/#javascript-rendered-forms   */}
+            {/* <input type="hidden" name="form-name" value="contact-form" /> */}
+
             <FormGroup>
               <TextField
                 required

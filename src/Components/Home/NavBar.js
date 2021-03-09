@@ -18,14 +18,26 @@ import {
   a,
   useTrail,
 } from "react-spring";
-import { mdiMenu, mdiHome } from "@mdi/js";
+import { mdiMenu, mdiHome, mdiCogClockwise, mdiCogSync } from "@mdi/js";
 import {
   sectionData,
   servicesSectionData,
   aboutLinks,
 } from "../../Constants/Data";
-import { kokoYellow, grey6 } from "../../Constants/Colors";
+import { kokoYellow2, grey6 } from "../../Constants/Colors";
 import { Trail } from "./Trails";
+import {
+  yellowIcon,
+  whiteIcon,
+  logoJustWords,
+  logoJustWordsBlack,
+} from "../../Assets";
+
+export const Image = styled.img`
+  object-fit: cover;
+  height: 150px;
+  width: 150px;
+`;
 
 const HrefContainer = styled.div`
   display: flex;
@@ -38,8 +50,8 @@ const HrefContainer = styled.div`
 
 const NavBarContainer = styled.div`
   display: flex;
-  padding: 40px;
-  background: ${kokoYellow};
+  padding: 20px;
+  background: ${(props) => (props.yellowScheme ? kokoYellow2 : 'black')};;
 `;
 
 const ServicesLink = styled(Link)`
@@ -83,6 +95,14 @@ const HomeButton = styled(Link)`
   }
 `;
 
+const ColorSchemeButton = styled(ButtonBase)`
+  &&& {
+    position: absolute;
+    right: 120px;
+    top: 20px;
+  }
+`;
+
 const NavButton = styled(ButtonBase)`
   &&& {
     position: absolute;
@@ -95,6 +115,7 @@ const NavBar = (navBarProps) => {
   const [users, setUsers] = useState([]);
   const [showObject, setShowObject] = useState(false);
   const [showServices, setShowServices] = useState(false);
+  const [yellowScheme, setYellowScheme] = useState(true);
 
   const servicesDropdownEl = !showServices ? (
     <div>
@@ -108,9 +129,19 @@ const NavBar = (navBarProps) => {
     </div>
   );
 
+  const logoEl = yellowScheme ? (
+    <Image src={logoJustWords} width="100px" />
+  ) : (
+    <Image src={logoJustWordsBlack} width="100px" />
+  );
+
   return (
-    <NavBarContainer>
-      <h1>Koko Media</h1>
+    <NavBarContainer yellowScheme={yellowScheme ? "true" : undefined}>
+      {/* <h1>Koko Media</h1> */}
+      <Image
+        src={yellowScheme ? logoJustWords : logoJustWordsBlack}
+        width="100px"
+      />
 
       {/* TODO: href for social media links */}
       {/* <HrefContainer>
@@ -121,16 +152,31 @@ const NavBar = (navBarProps) => {
         ))}
       </HrefContainer> */}
 
+      <ColorSchemeButton
+        key={`color-scheme-switch`}
+        onClick={()=>setYellowScheme(!yellowScheme)}
+      >
+        <Icon
+          color={yellowScheme ? "black" : kokoYellow2}
+          path={mdiCogSync}
+          size="40px"
+        />
+      </ColorSchemeButton>
+
       <HomeButton
         key={`link-home`}
         to="/"
-        style={{ color: "black" }}
+        // style={{ color: yellowScheme ? kokoYellow2 : 'black' }}
         onClick={() => {
           setShowObject(false);
           setShowServices(false);
         }}
       >
-        <Icon color="black" path={mdiHome} size="40px" />
+        <Icon
+          color={yellowScheme ? "black" : kokoYellow2}
+          path={mdiHome}
+          size="40px"
+        />
       </HomeButton>
 
       <NavButton
@@ -139,7 +185,7 @@ const NavBar = (navBarProps) => {
           setShowServices(false);
         }}
       >
-        <Icon color="black" path={mdiMenu} size="40px" />
+        <Icon color={yellowScheme ? "black" : kokoYellow2} path={mdiMenu} size="40px" />
       </NavButton>
 
       <Container

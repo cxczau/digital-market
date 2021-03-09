@@ -19,4 +19,9 @@ export const designImages = [
   design4,
   design5,
   design6,
-]
+];
+
+export { default as yellowIcon } from './Icons/croppedFinalYellow.png';
+export { default as whiteIcon } from './Icons/croppedWhiteAndYellow.png';
+export { default as logoJustWords } from './Icons/croppedJustWords.png';
+export { default as logoJustWordsBlack } from './Icons/croppedJustWordsBlack.png';
