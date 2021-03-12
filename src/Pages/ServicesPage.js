@@ -64,11 +64,11 @@ const ServicesPage = (props) => {
     <div>
       <TitleContainer>
         
-
+      <h3>Our Services</h3>
         
       </TitleContainer>
 
-      <h3>Our Services</h3>
+      
 
       <SectionContainer>
         {servicesDescription.map((service, key) => (

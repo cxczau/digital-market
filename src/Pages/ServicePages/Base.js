@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Typography, Breadcrumbs } from "@material-ui/core";
-import { servicesDescription, specificService } from "../../Constants/Text";
+import { Breadcrumbs } from "@material-ui/core";
+import { servicesDescription } from "../../Constants/Text";
 
 export const PageContainer = styled.div`
   display: flex;
@@ -54,7 +54,6 @@ export const Image = styled.img`
 `;
 
 export const ServiceBreadcrumb = (props) => {
-  
   const index = servicesDescription.findIndex(
     (service) => service.identifier === props.currentService.identifier
   );
@@ -65,21 +64,13 @@ export const ServiceBreadcrumb = (props) => {
 
   return (
     <Breadcrumbs aria-label="breadcrumb">
-      <Link
-        color="inherit"
-        to={prevService.link}
-        // onClick={handleClick}
-      >
+      <Link color="inherit" to={prevService.link}>
         {prevService.title}
       </Link>
 
       <h3>Our Services</h3>
 
-      <Link
-        color="inherit"
-        to={nextService.link}
-        // onClick={handleClick}
-      >
+      <Link color="inherit" to={nextService.link}>
         {nextService.title}
       </Link>
     </Breadcrumbs>

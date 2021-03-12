@@ -1,34 +1,22 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, CloseButton } from "react-bootstrap";
 import Icon from "@mdi/react";
 import styled from "styled-components";
 import {
   ButtonBase,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
 } from "@material-ui/core";
 import { ExpandMore, ExpandLess } from "@material-ui/icons";
 import {
-  useTransition,
-  useSpring,
-  useChain,
-  config,
   a,
-  useTrail,
 } from "react-spring";
-import { mdiMenu, mdiHome, mdiCogClockwise, mdiCogSync } from "@mdi/js";
+import { mdiMenu, mdiHome, mdiCogSync } from "@mdi/js";
 import {
   sectionData,
   servicesSectionData,
-  aboutLinks,
 } from "../../Constants/Data";
 import { kokoYellow2, grey6 } from "../../Constants/Colors";
 import { Trail } from "./Trails";
 import {
-  yellowIcon,
-  whiteIcon,
   logoJustWords,
   logoJustWordsBlack,
 } from "../../Assets";
@@ -39,14 +27,6 @@ export const Image = styled.img`
   width: 150px;
 `;
 
-const HrefContainer = styled.div`
-  display: flex;
-  justify-content: center;
-
-  > * {
-    margin: 0px 10px;
-  }
-`;
 
 const NavBarContainer = styled.div`
   display: flex;
@@ -111,11 +91,10 @@ const NavButton = styled(ButtonBase)`
   }
 `;
 
-const NavBar = (navBarProps) => {
-  const [users, setUsers] = useState([]);
+const NavBar = () => {
   const [showObject, setShowObject] = useState(false);
   const [showServices, setShowServices] = useState(false);
-  const [yellowScheme, setYellowScheme] = useState(true);
+  const [yellowScheme, setYellowScheme] = useState(false);
 
   const servicesDropdownEl = !showServices ? (
     <div>
@@ -129,15 +108,14 @@ const NavBar = (navBarProps) => {
     </div>
   );
 
-  const logoEl = yellowScheme ? (
-    <Image src={logoJustWords} width="100px" />
-  ) : (
-    <Image src={logoJustWordsBlack} width="100px" />
-  );
+  // const logoEl = yellowScheme ? (
+  //   <Image src={logoJustWords} width="100px" />
+  // ) : (
+  //   <Image src={logoJustWordsBlack} width="100px" />
+  // );
 
   return (
     <NavBarContainer yellowScheme={yellowScheme ? "true" : undefined}>
-      {/* <h1>Koko Media</h1> */}
       <Image
         src={yellowScheme ? logoJustWords : logoJustWordsBlack}
         width="100px"
@@ -195,10 +173,6 @@ const NavBar = (navBarProps) => {
         <Trail open={showObject}>
           <ServicesDropdown onClick={() => setShowServices(!showServices)}>
             {servicesDropdownEl}
-            {/* <p>Services</p> */}
-
-            {/* TODO: expand more formatted correctly */}
-            {/* <ExpandMore /> */}
           </ServicesDropdown>
 
           {showServices &&

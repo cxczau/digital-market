@@ -13,8 +13,6 @@ export const companyDescription = {
 
 export const contactUsDescription = [""];
 
-
-
 export const servicesDescription = [
   {
     title: "Website Design & Development",

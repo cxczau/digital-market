@@ -16,11 +16,12 @@ import {
   WddPage ,
 } from "./Pages";
 
-
-
+/**
+ * The Switch decides which component to show based on the current URL.
+ */
 const Main = () => {
   return (
-    <Switch> {/* The Switch decides which component to show based on the current URL.*/}
+    <Switch>
       <Route exact path='/' component={HomePage}></Route>
       <Route exact path='/about-us' component={AboutPage}></Route>
       <Route exact path='/our-work' component={WorkPage}></Route>
