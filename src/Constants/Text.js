@@ -2,8 +2,6 @@ export const companyDescription = {
   subHeading: ["Think Digital Marketing", "Think KOKO Media"],
   text: [
     "KOKO Media is built on family, friendships and most importantly RESULTS.",
-    "If you’re not happy with what we have produced for you, we’ll refund your money",
-    "that’s how serious we are!*",
     "We’re committed to establishing strong relationships with our clients, colleagues and industry partners to create business solutions and effective campaigns for you.",
     "We are confident in creating strategies to make you STAND OUT and ABOVE your competitors.",
     "We have taken our knowledge and implemented it in a range of businesses in ",
@@ -26,7 +24,7 @@ export const servicesDescription = [
     identifier: 'smm',
     link: "/social-media-mgmt",
     text:
-      "Social Media is an essential piece of your marketing strategy. Social Media platforms help you connect with your customers, increase awareness about your brand, boost your sales and increase leads. We can offer you Social Media strategies, content creation, platform and campaign management on Social media management across Instagram, Facebook, Linkedin and Youtube Paid ads Influencer marketing Performance reporting Active networking and community management.",
+      "Social Media is an essential piece of your marketing strategy. Social Media platforms help you connect with your customers, increase awareness about your brand, boost your sales and increase leads. We can offer you Social Media strategies, content creation, platform and campaign management on Social media management across Instagram, Facebook, and google.  Linkedin and Youtube Paid ads Influencer marketing Performance reporting Active networking and community management.",
   },
   {
     title: "Graphic Design",
@@ -35,13 +33,13 @@ export const servicesDescription = [
     text:
       "Whether you’re interested in building a business, or promoting a product, service, or brand we understand the importance of deliverables which are high quality, visually-appealing, and relevant to the business or brand that it’s representing. We help you create visual Identity through  brochures, one-pagers, posters, social media graphics Illustrations &  Product packaging",
   },
-  {
-    title: "Content creation",
-    identifier: 'creative',
-    link: "/content-creation",
-    text:
-      "Creating cinematic videos and eye catching professional images is an integral part of showcasing your brand and reaching out to your current and potential audiences. Our creative digital team will help you bring your business to life using top tier equipment and editing skills",
-  },
+  // {
+  //   title: "Content creation",
+  //   identifier: 'creative',
+  //   link: "/content-creation",
+  //   text:
+  //     "Creating cinematic videos and eye catching professional images is an integral part of showcasing your brand and reaching out to your current and potential audiences. Our creative digital team will help you bring your business to life using top tier equipment and editing skills",
+  // },
   {
     title: "Google (SEO)",
     identifier: 'seo',

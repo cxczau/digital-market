@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {
   mdiEmail,
   mdiLinkedin,
@@ -87,7 +88,15 @@ export const sectionData = [
   //   height: 400,
   //   link: "/services",
   // },
-
+  {
+    title: "Our Work",
+    section: SectionEnum.work,
+    name: "Rare Wind",
+    description: "#a8edea → #fed6e3",
+    css: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
+    height: 200,
+    link: "/our-work",
+  },
   {
     title: "Our Ideas",
     section: SectionEnum.ideas,
@@ -107,7 +116,7 @@ export const sectionData = [
     link: "/about-us",
   },
   {
-    title: "Contact",
+    title: "Contact Us",
     section: SectionEnum.contact,
     name: "Near Moon",
     description: "#5ee7df → #b490ca",
@@ -115,15 +124,7 @@ export const sectionData = [
     height: 400,
     link: "/contact-us",
   },
-  {
-    title: "Contact (v2)",
-    section: SectionEnum.work,
-    name: "Rare Wind",
-    description: "#a8edea → #fed6e3",
-    css: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
-    height: 200,
-    link: "/our-work",
-  },
+  
 ];
 
 export const urbicaMapConfiguration = {
@@ -145,30 +146,30 @@ export const aboutLinks = [
     url: "https://instagram.com",
     mdi: mdiInstagram,
   },
-  {
-    name: "youtube",
-    icon: "",
-    url: "https://youtube.com",
-    mdi: mdiYoutube,
-  },
-  {
-    name: "twitter",
-    icon: "",
-    url: "https://twitter.com",
-    mdi: mdiTwitter,
-  },
-  {
-    name: "email",
-    icon: "",
-    url: "mailto:cxczau@gmail.com",
-    mdi: mdiEmail,
-  },
-  {
-    name: "phone",
-    icon: "",
-    url: "tel:+614 0022 6711",
-    mdi: mdiPhone,
-  },
+  // {
+  //   name: "youtube",
+  //   icon: "",
+  //   url: "https://youtube.com",
+  //   mdi: mdiYoutube,
+  // },
+  // {
+  //   name: "twitter",
+  //   icon: "",
+  //   url: "https://twitter.com",
+  //   mdi: mdiTwitter,
+  // },
+  // {
+  //   name: "email",
+  //   icon: "",
+  //   url: "mailto:cxczau@gmail.com",
+  //   mdi: mdiEmail,
+  // },
+  // {
+  //   name: "phone",
+  //   icon: "",
+  //   url: "tel:+614 0022 6711",
+  //   mdi: mdiPhone,
+  // },
   {
     name: "linkedin",
     icon: "",
@@ -187,12 +188,6 @@ export const services = [
       {
         name: "Brand Identity",
       },
-      {
-        name: "Corporate Visual Guide",
-      },
-      {
-        name: "Brand Pitch Deck",
-      },
     ],
   },
   {
@@ -204,9 +199,9 @@ export const services = [
       {
         name: "Web Design & Development",
       },
-      {
-        name: "Mobile App",
-      },
+      // {
+      //   name: "Mobile App",
+      // },
     ],
   },
   {
@@ -215,9 +210,9 @@ export const services = [
       {
         name: "Search Engine Optimisation(SEO)",
       },
-      {
-        name: "Digital Campaign Strategy",
-      },
+      // {
+      //   name: "Digital Campaign Strategy",
+      // },
       {
         name: "Online Paid Advertising",
       },
@@ -230,25 +225,8 @@ export const services = [
     ],
   },
   {
-    group: "Creative Works",
-    subservice: [
-      {
-        name: "Videography",
-      },
-      {
-        name: "Photography",
-      },
-      {
-        name: "Graphic Design",
-      },
-    ],
-  },
-  {
     group: "Miscellaneous",
     subservice: [
-      {
-        name: "Business Intelligence (BI)",
-      },
       {
         name: "White Label",
       },
