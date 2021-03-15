@@ -2,24 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Icon from "@mdi/react";
 import styled from "styled-components";
-import {
-  ButtonBase,
-} from "@material-ui/core";
+import { ButtonBase } from "@material-ui/core";
 import { ExpandMore, ExpandLess } from "@material-ui/icons";
-import {
-  a,
-} from "react-spring";
-import { mdiMenu, mdiHome, mdiCogSync } from "@mdi/js";
-import {
-  sectionData,
-  servicesSectionData,
-} from "../../Constants/Data";
+import { a } from "react-spring";
+import { mdiMenu, mdiHome, mdiCogSync, mdiCloseBox } from "@mdi/js";
+import { sectionData, servicesSectionData } from "../../Constants/Data";
 import { kokoYellow2, grey6 } from "../../Constants/Colors";
 import { Trail } from "./Trails";
-import {
-  logoJustWords,
-  logoJustWordsBlack,
-} from "../../Assets";
+import { logoJustWords, logoJustWordsBlack } from "../../Assets";
 
 export const Image = styled.img`
   object-fit: cover;
@@ -27,11 +17,10 @@ export const Image = styled.img`
   width: 150px;
 `;
 
-
 const NavBarContainer = styled.div`
   display: flex;
   padding: 20px;
-  background: ${(props) => (props.yellowScheme ? kokoYellow2 : 'black')};;
+  background: ${(props) => (props.yellowScheme ? kokoYellow2 : "black")}; ;
 `;
 
 const ServicesLink = styled(Link)`
@@ -132,7 +121,7 @@ const NavBar = () => {
 
       <ColorSchemeButton
         key={`color-scheme-switch`}
-        onClick={()=>setYellowScheme(!yellowScheme)}
+        onClick={() => setYellowScheme(!yellowScheme)}
       >
         <Icon
           color={yellowScheme ? "black" : kokoYellow2}
@@ -163,7 +152,11 @@ const NavBar = () => {
           setShowServices(false);
         }}
       >
-        <Icon color={yellowScheme ? "black" : kokoYellow2} path={mdiMenu} size="40px" />
+        <Icon
+          color={yellowScheme ? "black" : kokoYellow2}
+          path={showObject ? mdiCloseBox : mdiMenu}
+          size="40px"
+        />
       </NavButton>
 
       <Container

@@ -52,7 +52,7 @@ const WorkPage = (props) => {
   return (
     <div>
       <TitleContainer>
-      <h3>Our Ideas</h3>
+      <h3>Our Work</h3>
 
         
       </TitleContainer>
