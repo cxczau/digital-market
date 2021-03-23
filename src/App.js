@@ -19,7 +19,7 @@ function App() {
 
       <Main />
 
-      <Footer>Copyright 2021 All rights reserved.</Footer>
+      {/* <Footer>Copyright 2021 All rights reserved.</Footer> */}
     </div>
   );
 }

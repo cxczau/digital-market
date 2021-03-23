@@ -76,7 +76,7 @@ const Subtitle = styled.div`
  * Old version of contact page with drawer function
  * @param {} props 
  */
-const WorkPage = (props) => {
+const ContactPage = (props) => {
   const [emailBody, setEmailBody] = useState({});
   const [readyToSubmit, setReadyToSubmit] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -259,4 +259,4 @@ const WorkPage = (props) => {
   );
 };
 
-export default WorkPage;
+export default ContactPage;

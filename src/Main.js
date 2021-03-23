@@ -4,7 +4,6 @@ import { Switch, Route } from 'react-router-dom';
 import {
   HomePage,
   ContactPage,
-  IdeasPage,
   WorkPage,
   AboutPage,
   ServicesPage,
@@ -24,8 +23,7 @@ const Main = () => {
     <Switch>
       <Route exact path='/' component={HomePage}></Route>
       <Route exact path='/meet-us' component={AboutPage}></Route>
-      {/* <Route exact path='/our-work' component={WorkPage}></Route> */}
-      <Route exact path='/our-work' component={IdeasPage}></Route>
+      <Route exact path='/our-work' component={WorkPage}></Route>
       <Route exact path='/contact' component={ContactPage}></Route>
       <Route exact path='/services' component={ServicesPage}></Route>
       <Route exact path='/branding' component={BrandingPage}></Route>

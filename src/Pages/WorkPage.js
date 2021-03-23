@@ -18,13 +18,9 @@ import {
 } from "@material-ui/core";
 import { ExpandMore } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
-import { aboutLinks, services } from "../Constants/Data";
-import { SectionEnum } from "../Constants/Data";
+import { aboutLinks, services, sampleText } from "../Constants/Data";
 import { mdiCards } from "@mdi/js";
 import { Link } from "react-router-dom";
-
-// EMAILJS_USER_ID=user_f2C3T8y77xDTsGloL6DP6
-// EMAILJS_API_KEY=0477e6882b08e867fc07362b6f4aca97
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -128,7 +124,7 @@ const WorkPage = (props) => {
     <div>
       <h3>Our Work</h3>
 
-      
+      <text>{sampleText}</text>
     </div>
   );
 };

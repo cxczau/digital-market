@@ -119,7 +119,7 @@ const NavBar = () => {
         ))}
       </HrefContainer> */}
 
-      <ColorSchemeButton
+      {/* <ColorSchemeButton
         key={`color-scheme-switch`}
         onClick={() => setYellowScheme(!yellowScheme)}
       >
@@ -128,7 +128,7 @@ const NavBar = () => {
           path={mdiCogSync}
           size="40px"
         />
-      </ColorSchemeButton>
+      </ColorSchemeButton> */}
 
       <HomeButton
         key={`link-home`}

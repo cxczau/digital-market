@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import {
   TextField,
   Card,
@@ -13,7 +14,7 @@ import {
   AccordionDetails,
   Button,
   Drawer,
-  List
+  List,
 } from "@material-ui/core";
 import { ExpandMore } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
@@ -119,12 +120,10 @@ const ContactPage = (props) => {
 
       <ContactContainer>
         <Card className={classes.card}>
-          <p>
+        <p>
             {" "}
             For more info about the services we provide,{" "}
-            <a onClick={() => props.setCurrentSection(SectionEnum.services)}>
-              click here
-            </a>
+            <Link to="/services">click here</Link>
             {"! "}
           </p>
 
