@@ -20,7 +20,27 @@ export const Image = styled.img`
 const NavBarContainer = styled.div`
   display: flex;
   padding: 20px;
-  background: ${(props) => (props.yellowScheme ? kokoYellow2 : "black")}; ;
+  background: ${(props) => (props.yellowScheme ? kokoYellow2 : "black")};
+
+  @media (min-width: 768px) {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 13%,
+      rgba(255, 255, 255, 0) 21%
+    );
+  }
+
+  @media (min-width: 1024px) {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 1) 13%,
+      rgba(255, 255, 255, 0) 50%,
+      rgba(0, 0, 0, 1) 96%
+    );
+  }
 `;
 
 const ServicesLink = styled(Link)`

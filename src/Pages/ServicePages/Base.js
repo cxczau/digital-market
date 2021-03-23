@@ -26,6 +26,7 @@ export const Summary = styled.div`
   position: relative;
   font-size: 0.8em;
   width: 50vw;
+  max-width: 100%;
   height: 100%;
 `;
 
@@ -58,9 +59,9 @@ export const ServiceBreadcrumb = (props) => {
     (service) => service.identifier === props.currentService.identifier
   );
   const prevService =
-    index === 0 ? servicesDescription[5] : servicesDescription[index - 1];
+    index === 0 ? servicesDescription[4] : servicesDescription[index - 1];
   const nextService =
-    index === 5 ? servicesDescription[0] : servicesDescription[index + 1];
+    index === 4 ? servicesDescription[0] : servicesDescription[index + 1];
 
   return (
     <Breadcrumbs aria-label="breadcrumb">
@@ -68,7 +69,9 @@ export const ServiceBreadcrumb = (props) => {
         {prevService.title}
       </Link>
 
-      <h3>Our Services</h3>
+      <Link color="inherit" to="/services">
+        Our Services
+      </Link>
 
       <Link color="inherit" to={nextService.link}>
         {nextService.title}

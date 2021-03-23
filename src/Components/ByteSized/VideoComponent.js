@@ -16,6 +16,17 @@ const VideoContainer = styled.div`
   justify-content: center;
   pointer-events: none; */
   }
+
+  @media (min-width: 768px) {
+    position: absolute;
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    z-index: -999;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
 `;
 
 const Video = styled.video`
@@ -23,6 +34,8 @@ const Video = styled.video`
   z-index: 2;
   width: 100%;
   margin: auto;
+  /* Spreads the video across the container */
+  right: 0px;
 `;
 
 const getVideoSrc = (width) => {
@@ -44,7 +57,7 @@ const VideoComponent = () => {
 
   return (
     <VideoContainer>
-      <Video autoPlay playsInline muted loop src={src} preload="auto"/>
+      <Video autoPlay playsInline muted loop src={src} preload="auto" />
     </VideoContainer>
   );
 };

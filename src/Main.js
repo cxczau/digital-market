@@ -8,7 +8,6 @@ import {
   AboutPage,
   ServicesPage,
   BrandingPage, 
-  ContentCreationPage,
   DesignPage,
   SeoPage ,
   SmmPage ,
@@ -27,7 +26,6 @@ const Main = () => {
       <Route exact path='/contact' component={ContactPage}></Route>
       <Route exact path='/services' component={ServicesPage}></Route>
       <Route exact path='/branding' component={BrandingPage}></Route>
-      <Route exact path='/content-creation' component={ContentCreationPage}></Route>
       <Route exact path='/graphic-design' component={DesignPage}></Route>
       <Route exact path='/seo' component={SeoPage}></Route>
       <Route exact path='/social-media-mgmt' component={SmmPage}></Route>

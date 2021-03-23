@@ -8,6 +8,7 @@ import {
   mdiPhone,
   mdiYoutube,
 } from "@mdi/js";
+import { businessMan, businessMan2, businessWoman, businessWoman2 } from "../Assets";
 
 export const SectionEnum = Object.freeze({
   home: 0,
@@ -27,14 +28,14 @@ export const servicesSectionData = [
     height: 400,
     link: "/branding",
   },
-  {
-    title: "Content Creation",
-    name: "Deep Blue",
-    description: "#e0c3fc → #8ec5fc",
-    css: "linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)",
-    height: 400,
-    link: "/content-creation",
-  },
+  // {
+  //   title: "Content Creation",
+  //   name: "Deep Blue",
+  //   description: "#e0c3fc → #8ec5fc",
+  //   css: "linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)",
+  //   height: 400,
+  //   link: "/content-creation",
+  // },
   {
     title: "Graphic Design",
     name: "Deep Blue",
@@ -67,7 +68,7 @@ export const servicesSectionData = [
     height: 400,
     link: "/web-development",
   },
-]
+];
 
 export const sectionData = [
   // {
@@ -124,7 +125,6 @@ export const sectionData = [
     height: 400,
     link: "/contact",
   },
-  
 ];
 
 export const urbicaMapConfiguration = {
@@ -231,6 +231,33 @@ export const services = [
         name: "White Label",
       },
     ],
+  },
+];
+
+export const teamFiles = [
+  {
+    name: "John",
+    photo: businessMan,
+    title: "Co-Founder",
+    role: "Digital Marketing, SEO",
+  },
+  {
+    name: "Jazmin",
+    photo: businessWoman,
+    title: "Co-Founder",
+    role: "Social Media Management",
+  },
+  {
+    name: "Shirley",
+    photo: businessWoman2,
+    title: "",
+    role: "Graphic Design",
+  },
+  {
+    name: "Charles",
+    photo: businessMan2,
+    title: "",
+    role: "Web Development",
   },
 ];
 

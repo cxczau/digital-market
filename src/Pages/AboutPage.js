@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import Icon from "@mdi/react";
-import { aboutLinks } from "../Constants/Data";
+import { aboutLinks, teamFiles } from "../Constants/Data";
 import { companyDescription } from "../Constants/Text";
+import { businessMan, businessWoman, teamPhotos } from "../Assets";
 
 const HrefContainer = styled.div`
   display: flex;
@@ -34,10 +35,37 @@ const SummaryContainer = styled.div`
   }
 `;
 
+const StaffContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > * {
+    margin: 5px;
+  }
+`;
+
+const TeamContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, minmax(350px, 100%));
+  grid-gap: 25px;
+  margin: 0px 10px;
+
+  > * {
+    margin: 5px;
+  }
+`;
+
 const Summary = styled.h5`
   position: relative;
   width: 65vw;
   height: 100%;
+`;
+
+const StaffPhoto = styled.img`
+  object-fit: cover;
+  height: 300px;
+  width: 300px;
 `;
 
 const AboutPage = () => {
@@ -56,6 +84,20 @@ const AboutPage = () => {
           <Summary key={`summary-text-${index}`}>{item}</Summary>
         ))}
       </SummaryContainer>
+
+      <h3>Meet our team</h3>
+
+      <TeamContainer>
+        {teamFiles.map((item, index) => (
+          <StaffContainer key={`team-photo-${index}`}>
+            <StaffPhoto src={item.photo} width="200px" />
+
+            <h3>{item.name}</h3>
+            <h4>{item.title}</h4>
+            <h5>{item.role}</h5>
+          </StaffContainer>
+        ))}
+      </TeamContainer>
     </PageContainer>
   );
 };

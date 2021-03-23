@@ -41,6 +41,7 @@
     "@urbica/react-map-gl-cluster": "^0.2.0",
     "bootstrap": "^4.5.3",
     "emailjs-com": "^2.6.4",
+    "fontsource-roboto": "^4.0.0",
     "framer-motion": "^3.2.1",
     "jspdf": "^2.2.0",
     "mapbox-gl": "^1.12.0",
